@@ -25,7 +25,7 @@ export default function MouseFollower() {
 
   return (
     <div
-      className={`pointer-events-none fixed top-0 left-0 z-[9999] w-12 h-12 rounded-full bg-white/10 backdrop-blur-lg border border-white/20 flex items-center justify-center text-white transition-transform duration-150 ease-out ${
+      className={`pointer-events-none fixed top-0 left-0 z-[9999] w-12 h-12  bg-white/10 backdrop-blur-lg border border-white/20 flex items-center justify-center text-white transition-transform duration-150 ease-out ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
       style={{
