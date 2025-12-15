@@ -20,10 +20,9 @@ export default function Navbar() {
   const navigation = useNavigate();
 
   const navLinks = [
-    { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
-    { name: "Events", href: "/events" },
     { name: "Gallery", href: "/gallery" },
+    
   ];
 
   const socialIcons = [
@@ -51,6 +50,16 @@ export default function Navbar() {
 
           {/* LEFT SIDE — Full Desktop Menu */}
           <div className="hidden lg:flex items-center space-x-8">
+            {/* Logo */}
+            <Link to="/" className="flex items-center">
+              <img
+                src="/Aaliza logo white.svg"
+                alt="Aaliza Technologies Logo"
+                className="h-12 w-auto sm:h-16"
+              />
+            </Link>
+
+            {/* Other links */}
             {navLinks.map((link) => (
               <Link
                 key={link.name}
@@ -98,11 +107,17 @@ export default function Navbar() {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
+             <Link
+              to="/events"
+              className="text-white text-base font-medium hover:text-primary transition-all hover:scale-105"
+            >
+              Events
+            </Link>
           </div>
 
-          {/* CENTER — Logo */}
+          {/* CENTER — Logo for mobile */}
           <div
-            className="absolute left-1/2 transform -translate-x-1/2 cursor-pointer p-2 rounded-lg hover:bg-gray-100 transition-colors duration-300"
+            className="absolute left-1/2 transform -translate-x-1/2 cursor-pointer p-2 rounded-lg hover:bg-gray-100 transition-colors duration-300 lg:hidden"
             onClick={() => navigation("/")}
           >
             <img
@@ -173,16 +188,21 @@ export default function Navbar() {
 
                     {/* MOBILE MENU LINKS */}
                     <div className="flex flex-col space-y-6">
-                      {navLinks.map((link) => (
-                        <Link
-                          key={link.name}
-                          to={link.href}
-                          onClick={handleMobileLinkClick}
-                          className="text-xl font-semibold hover:text-primary transition-all"
-                        >
-                          {link.name}
-                        </Link>
-                      ))}
+                      <Link
+                        to="/about"
+                        onClick={handleMobileLinkClick}
+                        className="text-xl font-semibold hover:text-primary transition-all"
+                      >
+                        About Us
+                      </Link>
+
+                      <Link
+                        to="/gallery"
+                        onClick={handleMobileLinkClick}
+                        className="text-xl font-semibold hover:text-primary transition-all"
+                      >
+                        Gallery
+                      </Link>
 
                       {/* SERVICES DROPDOWN — MOBILE */}
                       <div className="mt-2">
@@ -217,6 +237,14 @@ export default function Navbar() {
                           </Link>
                         </div>
                       </div>
+
+                      <Link
+                        to="/events"
+                        onClick={handleMobileLinkClick}
+                        className="text-xl font-semibold hover:text-primary transition-all"
+                      >
+                        Events
+                      </Link>
                     </div>
 
                     {/* MOBILE CONTACT BUTTON */}

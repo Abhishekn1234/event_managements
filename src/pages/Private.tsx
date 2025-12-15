@@ -44,48 +44,27 @@ export default function Private() {
   }, []);
 
   // FIXED: Enhanced Scroll Reveal Component with immediate visibility
-  const ScrollReveal = ({ 
-    children, 
-    showProgress, 
-    direction = 'up' 
-  }: { 
-    children: ReactNode;
-    showProgress: any;
-    direction?: 'up' | 'down';
-  }) => {
-    const [isActive, setIsActive] = useState(false);
-    
-    // Track when progress starts
-    useEffect(() => {
-      const unsubscribe = showProgress.on("change", (latest: number) => {
-        if (latest > 0.05 && !isActive) {
-          setIsActive(true);
-        }
-      });
-      return unsubscribe;
-    }, [showProgress, isActive]);
+const ScrollReveal = ({
+  children,
+  showProgress,
+  direction = "up",
+}: {
+  children: ReactNode;
+  showProgress: any;
+  direction?: "up" | "down";
+}) => {
+  const y = useTransform(showProgress, [0, 1], direction === "up" ? [20, 0] : [-20, 0]);
+  const opacity = useTransform(showProgress, [0, 0.2, 1], [0, 1, 1]);
+  const scale = useTransform(showProgress, [0, 0.3, 1], [0.98, 1, 1]);
 
-    const opacity = useTransform(showProgress, [0, 0.2, 1], [0, 1, 1]);
-    const y = useTransform(showProgress, [0, 1], 
-      direction === 'up' ? [20, 0] : [-20, 0]
-    );
-    const scale = useTransform(showProgress, [0, 0.3, 1], [0.98, 1, 1]);
-    
-    return (
-      <motion.div 
-        style={{ 
-          opacity, 
-          y,
-          scale,
-          visibility: isActive ? 'visible' as const : 'hidden' as const
-        }}
-        className="w-full"
-        initial={false}
-      >
-        {children}
-      </motion.div>
-    );
-  };
+  return (
+    <motion.div style={{ opacity, y, scale }} className="w-full" initial={false}>
+      {children}
+    </motion.div>
+  );
+};
+
+
 
   interface CardData {
     title: string;

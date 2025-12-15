@@ -64,51 +64,30 @@ export default function WeddingPlanning() {
   }
 
   // UPDATED Scroll Reveal Component - FIXED BLANK SPACE ISSUE
-  const ScrollReveal: React.FC<ScrollRevealProps> = ({
-    children,
+const ScrollReveal: React.FC<ScrollRevealProps> = ({
+  children,
+  showProgress,
+  direction = "up",
+}) => {
+  const y = useTransform(
     showProgress,
-    direction = "up",
-  }) => {
-    const [isVisible, setIsVisible] = useState(false);
-    
-    // Monitor showProgress to determine visibility
-    useMotionValueEvent(showProgress, "change", (latest) => {
-      setIsVisible(latest > 0.1); // Show when progress > 10%
-    });
+    [0, 1],
+    direction === "up" ? [40, 0] : [-40, 0]
+  );
+  const opacity = useTransform(showProgress, [0, 0.3, 1], [0, 1, 1]);
+  const scale = useTransform(showProgress, [0, 1], [0.95, 1]);
 
-    const opacity = useTransform(showProgress, [0, 0.3, 1], [0, 1, 1]);
-    const y = useTransform(
-      showProgress,
-      [0, 1],
-      direction === "up" ? [40, 0] : [-40, 0],
-      { clamp: false }
-    );
-    const scale = useTransform(showProgress, [0, 1], [0.95, 1]);
+  return (
+    <motion.div
+      style={{ opacity, y, scale }}
+      className="w-full"
+      transition={{ type: "spring", stiffness: 100, damping: 20, mass: 0.5 }}
+    >
+      {children}
+    </motion.div>
+  );
+};
 
-    return (
-      <motion.div
-        style={{
-          opacity,
-          y,
-          scale,
-        }}
-        className="w-full"
-        animate={isVisible ? "visible" : "hidden"}
-        variants={{
-          visible: { opacity: 1, y: 0, scale: 1 },
-          hidden: { opacity: 0, y: 20, scale: 0.98 }
-        }}
-        transition={{
-          type: "spring",
-          stiffness: 100,
-          damping: 20,
-          mass: 0.5
-        }}
-      >
-        {children}
-      </motion.div>
-    );
-  };
 
   return (
     <div ref={containerRef} className="relative bg-black">

@@ -14,7 +14,7 @@ import WeddingPlanning from "./pages/WeddingPlanning";
 import Cooperate from "./pages/Cooperate";
 import Private from "./pages/Private";
 import Contact from "./pages/Contact";
-import MouseFollower from "./pages/MouseFollower";
+// import MouseFollower from "./pages/MouseFollower";
 function App() {
   return (
     <>
@@ -29,7 +29,7 @@ function App() {
           pointerEvents: "none", // important: allows clicking through
         }}
       /> */}
-     <MouseFollower/>
+     {/* <MouseFollower/> */}
       <Navbar />
 
       <Routes>
