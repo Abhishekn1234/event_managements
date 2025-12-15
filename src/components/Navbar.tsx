@@ -47,14 +47,62 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-16 relative">
 
-          {/* LEFT SIDE — Logo + Desktop Menu */}
-          <div className="flex items-center space-x-10">
+          {/* LEFT SIDE — Full Desktop Menu */}
+          <div className="hidden lg:flex items-center space-x-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                to={link.href}
+                className="text-white text-base font-medium hover:text-primary transition-all hover:scale-105"
+              >
+                {link.name}
+              </Link>
+            ))}
 
-            {/* Logo */}
-            <div
-            className="flex-shrink-0 cursor-pointer p-2 rounded-lg hover:bg-gray-100 transition-colors duration-300"
+            {/* Services Dropdown */}
+            <DropdownMenu>
+              <div className="flex items-center space-x-2">
+                <button
+                  onClick={() => navigation("/services")}
+                  className="text-white text-base font-medium hover:text-primary transition-all hover:scale-105"
+                >
+                  Services
+                </button>
+                <DropdownMenuTrigger asChild>
+                  <button className="text-white hover:text-primary transition-all">
+                    ▼
+                  </button>
+                </DropdownMenuTrigger>
+              </div>
+
+              <DropdownMenuContent className="bg-black text-white border border-white/20 w-56">
+                <DropdownMenuItem
+                  onClick={() => navigation("/services/wedding-planning")}
+                  className="hover:bg-white/10 cursor-pointer"
+                >
+                  Wedding Events
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  onClick={() => navigation("/services/corporate-events")}
+                  className="hover:bg-white/10 cursor-pointer"
+                >
+                  Corporate Events
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  onClick={() => navigation("/services/private-parties")}
+                  className="hover:bg-white/10 cursor-pointer"
+                >
+                  Private Parties
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
+
+          {/* CENTER — Logo */}
+          <div
+            className="absolute left-1/2 transform -translate-x-1/2 cursor-pointer p-2 rounded-lg hover:bg-gray-100 transition-colors duration-300"
             onClick={() => navigation("/")}
           >
             <img
@@ -62,69 +110,6 @@ export default function Navbar() {
               alt="Aaliza Technologies Logo"
               className="h-12 w-auto sm:h-16"
             />
-          </div>
-
-
-            {/* Desktop Menu */}
-            <div className="hidden lg:flex items-center space-x-8">
-
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.href}
-                  className="text-white text-base font-medium hover:text-primary transition-all hover:scale-105"
-                >
-                  {link.name}
-                </Link>
-              ))}
-
-              {/* SERVICES DROPDOWN — DESKTOP */}
-              {/* SERVICES DROPDOWN — DESKTOP */}
-<DropdownMenu>
-  <div className="flex items-center space-x-2">
-
-    {/* CLICK to go to /services */}
-    <button
-      onClick={() => navigation("/services")}
-      className="text-white text-base font-medium hover:text-primary transition-all hover:scale-105"
-    >
-      Services
-    </button>
-
-    {/* DROPDOWN ARROW — opens menu */}
-    <DropdownMenuTrigger asChild>
-      <button className="text-white hover:text-primary transition-all">
-        ▼
-      </button>
-    </DropdownMenuTrigger>
-  </div>
-
-  {/* DROPDOWN MENU */}
-  <DropdownMenuContent className="bg-black text-white border border-white/20 w-56">
-    <DropdownMenuItem
-      onClick={() => navigation("/services/wedding-planning")}
-      className="hover:bg-white/10 cursor-pointer"
-    >
-      Wedding Events
-    </DropdownMenuItem>
-
-    <DropdownMenuItem
-      onClick={() => navigation("/services/corporate-events")}
-      className="hover:bg-white/10 cursor-pointer"
-    >
-      Corporate Events
-    </DropdownMenuItem>
-
-    <DropdownMenuItem
-      onClick={() => navigation("/services/private-parties")}
-      className="hover:bg-white/10 cursor-pointer"
-    >
-      Private Parties
-    </DropdownMenuItem>
-  </DropdownMenuContent>
-</DropdownMenu>
-
-            </div>
           </div>
 
           {/* RIGHT SIDE — Contact + Social Icons + Mobile Menu */}
@@ -201,12 +186,14 @@ export default function Navbar() {
 
                       {/* SERVICES DROPDOWN — MOBILE */}
                       <div className="mt-2">
-                        <button className="text-xl font-semibold hover:text-primary transition-all w-full text-left"  onClick={() => navigation("/services")}>
+                        <button
+                          className="text-xl font-semibold hover:text-primary transition-all w-full text-left"
+                          onClick={() => navigation("/services")}
+                        >
                           Services
                         </button>
 
                         <div className="ml-4 mt-3 flex flex-col space-y-3 text-lg">
-
                           <Link
                             to="/services/wedding-planning"
                             onClick={handleMobileLinkClick}
@@ -214,7 +201,6 @@ export default function Navbar() {
                           >
                             Wedding Event
                           </Link>
-
                           <Link
                             to="/services/corporate-events"
                             onClick={handleMobileLinkClick}
@@ -222,7 +208,6 @@ export default function Navbar() {
                           >
                             Corporate Events
                           </Link>
-
                           <Link
                             to="/services/private-parties"
                             onClick={handleMobileLinkClick}
@@ -230,20 +215,20 @@ export default function Navbar() {
                           >
                             Private Parties
                           </Link>
-
                         </div>
                       </div>
                     </div>
-                     <Button
-  onClick={() => {
-    navigation("/contact");
-    setIsSheetOpen(false);
-  }}
-  className="mt-10 w-full bg-primary text-white py-4 rounded-xl text-lg font-semibold hover:bg-primary/80 transition-all"
->
-  Contact Us
-</Button>
 
+                    {/* MOBILE CONTACT BUTTON */}
+                    <Button
+                      onClick={() => {
+                        navigation("/contact");
+                        setIsSheetOpen(false);
+                      }}
+                      className="mt-10 w-full bg-primary text-white py-4 rounded-xl text-lg font-semibold hover:bg-primary/80 transition-all"
+                    >
+                      Contact Us
+                    </Button>
 
                     {/* MOBILE SOCIAL ICONS */}
                     <div className="flex justify-center space-x-6 mt-10">
