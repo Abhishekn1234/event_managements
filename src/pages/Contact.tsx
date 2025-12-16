@@ -25,14 +25,14 @@ export default function Contact() {
         <div className="bg-gray-900 rounded-xl p-8 flex flex-col items-center text-center shadow-xl hover:shadow-2xl transition">
           <div className="text-yellow-500 text-4xl mb-4">📧</div>
           <h3 className="text-xl font-semibold mb-2">Email Us</h3>
-          <p className="text-gray-300">info@aalizahevents.com</p>
+          <p className="text-gray-300">info@aalizahevents.com, aalizahmoments@gmail.com </p>
         </div>
 
         {/* Call */}
         <div className="bg-gray-900 rounded-xl p-8 flex flex-col items-center text-center shadow-xl hover:shadow-2xl transition">
           <div className="text-yellow-500 text-4xl mb-4">📞</div>
           <h3 className="text-xl font-semibold mb-2">Call Us</h3>
-          <p className="text-gray-300">+971 542321282</p>
+          <p className="text-gray-300">+971 -502037669 , +971-551084366</p>
         </div>
 
         {/* Visit */}
