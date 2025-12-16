@@ -3,12 +3,12 @@ import React, { useState, useEffect } from 'react';
 const eventData = [
     {
         id: 1,
-        title: "ONAM THIRUVIZHA 2K25",
+        title: "NEW YEAR  2K25",
         subtitle: "DJ",
         date: "6TH SEP",
         time: "6:00 PM",
-        location: "ALOFT AL MINA, BURDUBAI, UAE",
-        image: "/events (1).jpg",
+        location: "UAE",
+        image: "/NEW YEAR BBQ GALA POSTER.jpg",
     },
     {
         id: 2,
