@@ -3,27 +3,13 @@ import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="relative bg-black text-white pt-32 pb-16 overflow-hidden">
-
-      {/* Floating Stars (optional) */}
-      {/* <div className="pointer-events-none absolute inset-0">
-        {Array.from({ length: 45 }).map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 rounded-full bg-white opacity-70"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-            }}
-          ></div>
-        ))}
-      </div> */}
+    <footer className="relative bg-black text-white pt-28 pb-14 overflow-hidden">
 
       {/* MAIN CONTENT */}
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-20 relative z-10">
 
         {/* LEFT SECTION */}
-        <div className="flex justify-start gap-32">
+        <div className="flex flex-col sm:flex-row gap-20">
 
           {/* Our Services */}
           <div>
@@ -52,29 +38,42 @@ export default function Footer() {
           {/* Description */}
           <p className="text-gray-300 text-lg leading-relaxed max-w-xl">
             Get exclusive updates on our latest events, special offers, and
-            behind-the-scenes stories from <span className="text-[#8cffd5]">Aalizah Events</span>.
+            behind-the-scenes stories from{" "}
+            <span className="text-[#8cffd5]">Aalizah Events</span>.
           </p>
 
-          {/* Email Input Line */}
+          {/* Contact Info (NO CARDS) */}
+          <div className="space-y-4 text-gray-300 text-lg">
+            <p>
+              <span className="text-[#D4AF37] font-medium">Email:</span>{" "}
+              info@aalizahevents.com, aalizahmoments@gmail.com
+            </p>
+            <p>
+              <span className="text-[#D4AF37] font-medium">Call:</span>{" "}
+              +971 50 203 7669 · +971 55 108 4366
+            </p>
+          </div>
+
+          {/* Newsletter */}
           <div>
             <div className="flex items-center gap-4">
-              <img src="/enter your email.jpg" alt="" className="w-10 h-10 object-contain" /> 
+              <img src="/enter your email.jpg" alt="" className="w-9 h-9 object-contain" />
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="bg-transparent text-3xl text-gray-300 font-light w-full focus:outline-none placeholder-gray-500"
+                className="bg-transparent text-2xl text-gray-300 font-light w-full focus:outline-none placeholder-gray-500"
               />
-              <span className="text-4xl">→</span>
+              <span className="text-3xl">→</span>
             </div>
-            <div className="border-b border-gray-500 mt-3"></div>
+            <div className="border-b border-gray-600 mt-3"></div>
           </div>
 
           {/* Social Icons */}
-          <div className="flex gap-7 pt-4">
+          <div className="flex gap-6 pt-4">
             {[FaYoutube, FaInstagram, FaFacebookF].map((Icon, i) => (
               <div
                 key={i}
-                className="w-14 h-14 bg-[#D4AF37] text-black flex items-center justify-center rounded-full text-3xl hover:scale-110 transition cursor-pointer"
+                className="w-12 h-12 bg-[#D4AF37] text-black flex items-center justify-center rounded-full text-2xl hover:scale-110 transition cursor-pointer"
               >
                 <Icon />
               </div>
@@ -84,53 +83,25 @@ export default function Footer() {
       </div>
 
       {/* BOTTOM */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 mt-20 flex justify-between text-gray-400 text-sm">
-        <div className="space-x-10 flex">
+      <div className="max-w-7xl mx-auto px-6 mt-16 flex flex-col md:flex-row justify-between gap-6 text-gray-400 text-sm">
+        <div className="space-x-8">
           <Link to="/privacy-policy" className="hover:text-[#D4AF37]">Privacy Policy</Link>
           <Link to="/terms" className="hover:text-[#D4AF37]">Terms of Service</Link>
         </div>
 
         <div>
-          Copyright © {new Date().getFullYear()} Aalizah Events – All Rights Reserved
+          © {new Date().getFullYear()} Aalizah Events – All Rights Reserved
         </div>
       </div>
 
-      {/* Scroll to top button */}
-      {/* Scroll to top button */}
-<button
-  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-  className="
-    fixed
-    bottom-4 right-4
-    sm:bottom-6 sm:right-6
-    md:bottom-10 md:right-10
-
-    w-10 h-10
-    sm:w-12 sm:h-12
-    md:w-14 md:h-14
-
-    bg-[#D4AF37]
-    text-black
-    rounded-full
-    flex items-center justify-center
-
-    text-xl
-    sm:text-2xl
-    md:text-3xl
-
-    shadow-lg
-    z-50
-
-    transition-transform duration-300
-    active:scale-95
-    md:hover:scale-110
-  "
-  aria-label="Scroll to top"
->
-  ↑
-</button>
-
-
+      {/* Scroll To Top */}
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className="fixed bottom-6 right-6 w-12 h-12 bg-[#D4AF37] text-black rounded-full flex items-center justify-center text-2xl shadow-lg hover:scale-110 transition z-50"
+        aria-label="Scroll to top"
+      >
+        ↑
+      </button>
 
     </footer>
   );
