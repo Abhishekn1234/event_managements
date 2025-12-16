@@ -1,0 +1,10 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://aalizahevents.com/sitemap.xml
+
+# Optional: Disallow sensitive pages (example)
+# Disallow: /admin
+# Disallow: /login
