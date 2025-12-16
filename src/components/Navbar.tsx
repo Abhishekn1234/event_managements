@@ -116,16 +116,21 @@ export default function Navbar() {
           </div>
 
           {/* CENTER — Logo for mobile */}
-          <div
-            className="absolute left-1/2 transform -translate-x-1/2 cursor-pointer p-2 rounded-lg hover:bg-gray-100 transition-colors duration-300 lg:hidden"
-            onClick={() => navigation("/")}
-          >
-            <img
-              src="/Aaliza logo white.svg"
-              alt="Aaliza Technologies Logo"
-              className="h-12 w-auto sm:h-16"
-            />
-          </div>
+          {/* CENTER — Logo + Text for mobile */}
+<div
+  className="absolute left-1/2 transform -translate-x-1/2 lg:hidden flex flex-col items-center cursor-pointer"
+  onClick={() => navigation("/")}
+>
+  <img
+    src="/Aaliza logo white.svg"
+    alt="Aalizah Events Logo"
+    className="h-12 w-auto"
+  />
+  <span className="mt-1 text-white text-sm font-semibold tracking-wide">
+    Aalizah Events
+  </span>
+</div>
+
 
           {/* RIGHT SIDE — Contact + Social Icons + Mobile Menu */}
           <div className="flex items-center space-x-5">
