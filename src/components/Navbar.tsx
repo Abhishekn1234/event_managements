@@ -58,7 +58,7 @@ export default function Navbar() {
     className="h-12 w-auto sm:h-16"
   />
   <span className="text-white text-lg sm:text-xl font-semibold">
-    Aaliza Events
+    Aalizah Events
   </span>
 </Link>
 
