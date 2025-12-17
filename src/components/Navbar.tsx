@@ -53,7 +53,7 @@ export default function Navbar() {
             {/* Logo */}
           <Link to="/" className="flex flex-col items-center gap-1">
   <img
-    src="/Aaliza logo white.svg"
+    src="/Aalizah Events Logo.svg"
     alt="Aaliza Technologies Logo"
     className="h-12 w-auto sm:h-8"
   />
@@ -127,7 +127,7 @@ export default function Navbar() {
   onClick={() => navigation("/")}
 >
   <img
-    src="/Aaliza logo white.svg"
+    src="/Aalizah Events Logo.svg"
     alt="Aalizah Events Logo"
     className="h-12 w-auto"
   />

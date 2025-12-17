@@ -8,7 +8,7 @@ const eventData = [
         date: "6TH SEP",
         time: "6:00 PM",
         location: "UAE",
-        image: "/NEW YEAR BBQ GALA POSTER.jpg",
+        image: "/eventss.jpg",
     },
     {
         id: 2,
