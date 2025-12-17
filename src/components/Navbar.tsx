@@ -55,7 +55,7 @@ export default function Navbar() {
   <img
     src="/Aalizah Events Logo.svg"
     alt="Aaliza Technologies Logo"
-    className="h-12 w-auto sm:h-8"/>
+    className="h-30 w-auto sm:h-8"/>
     
 </Link>
 
@@ -126,11 +126,9 @@ export default function Navbar() {
   <img
     src="/Aalizah Events Logo.svg"
     alt="Aalizah Events Logo"
-    className="h-12 w-auto"
+    className="h-30 w-auto"
   />
-  <span className="mt-1 text-white text-sm font-semibold tracking-wide">
-    Aalizah Events
-  </span>
+  
 </div>
 
 
