@@ -51,13 +51,17 @@ export default function Navbar() {
           {/* LEFT SIDE — Full Desktop Menu */}
           <div className="hidden lg:flex items-center space-x-8">
             {/* Logo */}
-            <Link to="/" className="flex items-center">
-              <img
-                src="/Aaliza logo white.svg"
-                alt="Aaliza Technologies Logo"
-                className="h-12 w-auto sm:h-16"
-              />
-            </Link>
+          <Link to="/" className="flex items-center gap-3">
+  <img
+    src="/Aaliza logo white.svg"
+    alt="Aaliza Technologies Logo"
+    className="h-12 w-auto sm:h-16"
+  />
+  <span className="text-white text-lg sm:text-xl font-semibold">
+    Aaliza Events
+  </span>
+</Link>
+
 
             {/* Other links */}
             {navLinks.map((link) => (
