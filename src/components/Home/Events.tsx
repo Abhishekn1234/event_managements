@@ -148,7 +148,7 @@ const handleScrollToBottom = () => {
         transition={{ duration: 1.2 }}
         className="absolute inset-0 pointer-events-none"
       >
-        <div className="absolute top-10 left-10 text-yellow-500 text-4xl md:text-6xl">🕊️</div>
+        
         <div className="absolute bottom-20 right-20 text-yellow-500 text-4xl md:text-6xl">✨</div>
       </motion.div>
 
