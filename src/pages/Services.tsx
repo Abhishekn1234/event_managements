@@ -144,7 +144,12 @@ export default function Services() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
+   const whatsappNumber = "+971502037669"; // WhatsApp number without spaces or symbols
 
+const redirectToWhatsApp = () => {
+  const url = `https://wa.me/${whatsappNumber}`;
+  window.open(url, "_blank"); // Opens WhatsApp in a new tab
+};
   const serviceCategories = [
     {
       title: "Weddings",
@@ -375,15 +380,16 @@ export default function Services() {
           </p>
           
           <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="group px-8 py-4 bg-gradient-to-r from-pink-600 to-purple-600 rounded-full 
-                     font-semibold text-lg hover:from-pink-700 hover:to-purple-700 
-                     transition-all duration-300 flex items-center gap-3 mx-auto"
-          >
-            <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform" />
-            Start Planning Your Event
-          </motion.button>
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+  onClick={redirectToWhatsApp}
+  className="group px-8 py-4 bg-gradient-to-r from-pink-600 to-purple-600 rounded-full 
+             font-semibold text-lg hover:from-pink-700 hover:to-purple-700 
+             transition-all duration-300 flex items-center gap-3 mx-auto"
+>
+  <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+  Start Planning Your Event
+</motion.button>
         </motion.div>
       </div>
 

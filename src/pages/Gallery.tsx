@@ -47,7 +47,7 @@ export default function Gallery() {
       ${visible1 ? "opacity-100 scale-100" : "opacity-0 scale-110"}
     `}
     style={{
-      backgroundImage: "url('/hello.png')",
+      backgroundImage: "url('/gallery events.jpg')",
       backgroundSize: "cover",
       backgroundPosition: "center",
     }}

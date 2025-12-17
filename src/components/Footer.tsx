@@ -17,7 +17,7 @@ export default function Footer() {
             <ul className="space-y-3 text-gray-300 text-lg">
               <li><Link to="/services/wedding-planning" className="hover:text-[#D4AF37] transition">Wedding Events</Link></li>
               <li><Link to="/services/corporate-events" className="hover:text-[#D4AF37] transition">Corporate Events</Link></li>
-              <li><Link to="/services/private-parties" className="hover:text-[#D4AF37] transition">Private Parties</Link></li>
+              <li><Link to="/services/private-parties" className="hover:text-[#D4AF37] transition">Private Events</Link></li>
             </ul>
           </div>
 

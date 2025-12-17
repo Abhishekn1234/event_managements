@@ -103,7 +103,7 @@ export default function Navbar() {
                   onClick={() => navigation("/services/private-parties")}
                   className="hover:bg-white/10 cursor-pointer"
                 >
-                  Private Parties
+                  Private Events
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -238,7 +238,7 @@ export default function Navbar() {
                             onClick={handleMobileLinkClick}
                             className="text-white/80 hover:text-primary"
                           >
-                            Private Parties
+                            Private Events
                           </Link>
                         </div>
                       </div>
