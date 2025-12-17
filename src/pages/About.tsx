@@ -358,23 +358,26 @@ export default function About() {
             viewport={{ once: true }}
           >
             {/* Left Image */}
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="relative group"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/30 to-pink-600/30 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500" />
-              <div className="relative w-full aspect-square overflow-hidden rounded-3xl border border-white/10">
-                <img
-                  src="/our philosopy in about us.jpg"
-                  alt="Our Story"
-                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-              </div>
-            </motion.div>
+           <motion.div
+  initial={{ opacity: 0, x: -40 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.8 }}
+  viewport={{ once: true }}
+  className="relative group w-full"
+>
+  <div className="absolute inset-0 bg-gradient-to-br from-purple-600/30 to-pink-600/30 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500" />
+
+  <div className="relative w-full overflow-hidden rounded-3xl border border-white/10">
+    <img
+      src="/our philosopy in about us.jpg"
+      alt="Our Story"
+      className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105"
+    />
+
+    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+  </div>
+</motion.div>
+
 
             {/* Right Text Block */}
             <motion.div

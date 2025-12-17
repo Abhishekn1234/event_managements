@@ -51,11 +51,11 @@ export default function Navbar() {
           {/* LEFT SIDE — Full Desktop Menu */}
           <div className="hidden lg:flex items-center space-x-8">
             {/* Logo */}
-          <Link to="/" className="flex flex-col items-center gap-2">
+          <Link to="/" className="flex flex-col items-center gap-1">
   <img
     src="/Aaliza logo white.svg"
     alt="Aaliza Technologies Logo"
-    className="h-12 w-auto sm:h-16"
+    className="h-12 w-auto sm:h-8"
   />
   <span className="text-white text-lg sm:text-xl font-semibold text-center">
     Aalizah Events
