@@ -369,7 +369,7 @@ export default function About() {
   <div className="absolute inset-0 bg-gradient-to-br from-purple-600/30 to-pink-600/30 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500" />
 
   {/* Image wrapper */}
-  <div className="relative w-full rounded-3xl border border-white/10 overflow-hidden aspect-[4/5] sm:aspect-[3/4]">
+  <div className="relative w-full rounded-3xl border border-white/10 overflow-hidden">
     <img
       src="/our philosopy in about us.jpg"
       alt="Our Story"
