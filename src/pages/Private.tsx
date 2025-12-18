@@ -141,14 +141,15 @@ const ScrollReveal = ({
     });
   }, []);
 
-  return (
-    <div ref={containerRef} className="relative">
+ return (
+    <div ref={containerRef} className="relative bg-black text-white">
+
       {/* HERO SECTION */}
       <section 
         className="relative w-full min-h-screen bg-cover bg-center flex items-center justify-center"
         style={{
           backgroundImage: "url('/private parties.jpg')",
-          backgroundAttachment: "fixed"
+          backgroundAttachment: "fixed",
         }}
       >
         <div className="absolute inset-0 bg-black/70"></div>
@@ -179,13 +180,10 @@ const ScrollReveal = ({
         </motion.div>
       </section>
 
-      {/* OUR EXPERTISE SECTION - FIXED: Removed extra margin/padding */}
-      <section className="w-full py-20 md:py-24 bg-gradient-to-b from-black to-gray-900 text-center px-6">
+      {/* OUR EXPERTISE SECTION */}
+      <section className="w-full py-20 md:py-24 bg-black text-center px-6">
         <div className="max-w-7xl mx-auto">
-          <ScrollReveal 
-            showProgress={section1Show} 
-            direction="up"
-          >
+          <ScrollReveal showProgress={section1Show} direction="up">
             <div className="pt-6">
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
@@ -251,13 +249,10 @@ const ScrollReveal = ({
         </div>
       </section>
 
-      {/* OUR PHILOSOPHY SECTION - FIXED: Adjusted spacing */}
-      <section className="w-full py-20 md:py-24 bg-gradient-to-b from-gray-900 to-black text-center px-6">
+      {/* OUR PHILOSOPHY SECTION */}
+      <section className="w-full py-20 md:py-24 bg-black text-center px-6">
         <div className="max-w-7xl mx-auto">
-          <ScrollReveal 
-            showProgress={section2Show} 
-            direction="up"
-          >
+          <ScrollReveal showProgress={section2Show} direction="up">
             <div className="pt-6">
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
@@ -286,28 +281,21 @@ const ScrollReveal = ({
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.6, delay: i * 0.15 }}
-                    className="relative bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-2xl overflow-hidden shadow-2xl backdrop-blur-lg group p-6 text-left min-h-[380px] hover:border-orange-500/50 transition-all duration-500 flex flex-col"
+                    className="relative bg-gray-900/50 border border-gray-800 rounded-2xl overflow-hidden shadow-2xl backdrop-blur-lg group p-6 text-left min-h-[380px] hover:border-orange-500/50 transition-all duration-500 flex flex-col"
                   >
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
 
                     <div className="relative z-10 flex flex-col h-full">
                       <div className="flex items-center gap-3 mb-4">
-                        {typeof item.icon === 'string' ? (
-                          <img 
-                            src={item.icon} 
-                            alt={item.title} 
-                            className="w-8 h-8 object-cover rounded-lg"
-                          />
+                        {typeof item.icon === "string" ? (
+                          <span className="text-2xl">{item.icon}</span>
                         ) : (
-                          <div className="text-orange-500 text-2xl">
-                            {item.icon}
-                          </div>
+                          <div className="text-orange-500 text-2xl">{item.icon}</div>
                         )}
                         <h3 className="text-2xl font-bold text-orange-500">
                           {item.title}
                         </h3>
                       </div>
-
                       <p className="text-gray-300 text-md leading-relaxed flex-1">
                         {item.desc}
                       </p>
@@ -323,12 +311,9 @@ const ScrollReveal = ({
         </div>
       </section>
 
-      {/* DRIP SECTION - FIXED: Immediately visible */}
-      <section className="w-full py-20 md:py-24">
-        <ScrollReveal 
-          showProgress={section3Show} 
-          direction="up"
-        >
+      {/* DRIP SECTION */}
+      <section className="w-full py-20 md:py-24 bg-black">
+        <ScrollReveal showProgress={section3Show} direction="up">
           <div className="pt-6">
             <DripSection />
           </div>
