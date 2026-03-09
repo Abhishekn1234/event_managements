@@ -217,35 +217,33 @@ const ServicesSection: FC = () => {
     {
       type: "card",
       title: "AALIZAH",
-      subtitle: "LUXURY",
-      description: "CELEBRATIONS",
+      subtitle: "EVENT",
+      description: "EXPERIENCES",
       image: {
-        src: "/4ed87292688611ad8471655d7e029e78.jpg",
-        title: "Wedding Events",
+        src: "/luxury.jpg",
+        title: "Luxury Wedding Planning",
       },
     },
 
-    // ✅ ALL 3 IMAGES IN ONE SLIDE
     {
       type: "images",
       images: [
         {
-          src: "/8e8c090b023114191e642071528acb33.jpg",
+          src: "/cooperaatevents.jpg",
           title: "Corporate Events",
         },
         {
-          src: "/private parties home1.jpg",
-          title: "Private Parties",
+          src: "/privateparties.jpg",
+          title: "Private Celebrations",
         },
         {
-          src: "/photography 2.jpg",
-          title: "Photography",
+          src: "/eventphotography.jpg",
+          title: "Event Photography",
         },
       ],
     },
   ];
 
-  // Update width on resize
   useEffect(() => {
     const updateWidth = () => {
       if (containerRef.current) {
@@ -257,7 +255,6 @@ const ServicesSection: FC = () => {
     return () => window.removeEventListener("resize", updateWidth);
   }, []);
 
-  // Auto slide
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -266,7 +263,18 @@ const ServicesSection: FC = () => {
   }, [slides.length]);
 
   return (
-    <div className="bg-black text-white min-h-screen overflow-hidden">
+    <section className="bg-gradient-to-b from-[#0b0f19] via-[#111827] to-black text-white min-h-screen overflow-hidden py-24">
+
+      {/* Section Title */}
+      <div className="text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-light tracking-widest text-[#d9c15e]">
+          OUR SERVICES
+        </h2>
+        <p className="text-gray-400 mt-4 text-lg">
+          Creating unforgettable experiences for every celebration
+        </p>
+      </div>
+
       <motion.div
         ref={containerRef}
         className="flex"
@@ -276,70 +284,86 @@ const ServicesSection: FC = () => {
         {slides.map((slide, index) => (
           <div
             key={index}
-            className="flex-shrink-0 w-full min-h-[70vh] flex items-center justify-center px-4 md:px-8"
+            className="flex-shrink-0 w-full min-h-[70vh] flex items-center justify-center px-4 md:px-10"
           >
             {/* CARD SLIDE */}
             {slide.type === "card" && (
-              <div className="w-full max-w-7xl flex flex-col lg:flex-row items-center justify-between gap-10">
+              <div className="w-full max-w-7xl flex flex-col lg:flex-row items-center justify-between gap-12">
+
+                {/* Text */}
                 <div className="w-full lg:w-1/2 text-center lg:text-left">
-                  <h1 className="text-[#d9c15e] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light mb-4">
+
+                  <h1 className="text-[#d9c15e] text-5xl md:text-6xl lg:text-7xl font-light mb-4">
                     {slide.title}
                   </h1>
 
-                  <div className="inline-block mb-6 rotate-[-3deg] bg-[#9d622b] px-6 py-3">
-                    <p className="text-white text-3xl md:text-4xl lg:text-5xl">
+                  <div className="inline-block mb-6 rotate-[-2deg] bg-[#9d622b] px-6 py-3 rounded">
+                    <p className="text-white text-3xl md:text-4xl">
                       {slide.subtitle}
                     </p>
                   </div>
 
-                  <p className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light">
+                  <p className="text-white text-4xl md:text-5xl font-light">
                     {slide.description}
                   </p>
+
+                  <p className="text-gray-400 mt-6 max-w-md">
+                    We design and manage luxury events with creativity,
+                    precision, and attention to every detail.
+                  </p>
+
                 </div>
 
+                {/* Image */}
                 <div className="w-full flex justify-center lg:justify-end">
+
                   <motion.div
-                    className="relative w-full max-w-[520px]"
-                    whileHover={{ scale: 1.05 }}
+                    className="relative w-full max-w-[500px]"
+                    whileHover={{ scale: 1.05, rotate: -4 }}
                   >
                     <img
                       src={slide.image.src}
                       alt={slide.image.title}
-                      className="w-full aspect-[3/4] object-cover -rotate-10"
+                      className="w-full aspect-[3/4] object-cover rounded-xl shadow-2xl"
                     />
-                    <p className="absolute bottom-4 left-4 bg-black/60 px-3 py-1 text-lg rounded">
+
+                    <p className="absolute bottom-4 left-4 bg-black/60 px-4 py-2 text-lg rounded">
                       {slide.image.title}
                     </p>
                   </motion.div>
+
                 </div>
               </div>
             )}
 
-            {/* 3 IMAGES SLIDE */}
+            {/* SERVICES GRID */}
             {slide.type === "images" && (
-              <div className="w-full max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center">
+              <div className="w-full max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 place-items-center">
+
                 {slide.images.map((img, i) => (
                   <motion.div
                     key={i}
-                    className="relative w-full max-w-[420px]"
-                    whileHover={{ scale: 1.05 }}
+                    className="relative w-full max-w-[380px]"
+                    whileHover={{ scale: 1.06, rotate: -3 }}
                   >
                     <img
                       src={img.src}
                       alt={img.title}
-                      className="w-full aspect-[3/4] object-cover -rotate-10"
+                      className="w-full aspect-[3/4] object-cover rounded-xl shadow-xl"
                     />
-                    <p className="absolute bottom-4 left-4 bg-black/60 px-3 py-1 text-lg rounded">
+
+                    <p className="absolute bottom-4 left-4 bg-black/60 px-4 py-2 text-lg rounded">
                       {img.title}
                     </p>
                   </motion.div>
                 ))}
+
               </div>
             )}
           </div>
         ))}
       </motion.div>
-    </div>
+    </section>
   );
 };
 

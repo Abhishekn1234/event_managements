@@ -7,7 +7,7 @@ const gold = "#D4AF37";
 const white = "#ffffff";
 
 /* =========================
-   Animated Line Component
+   Animated Line
 ========================= */
 const AnimatedLine = ({
   children,
@@ -39,10 +39,9 @@ const AnimatedLine = ({
           ? `linear-gradient(to top, ${gold}, ${white})`
           : "none",
         WebkitBackgroundClip: inView ? "text" : "unset",
-        color: inView ? "transparent" : white,
-        transition: "all 1.4s ease",
+        color: inView ? "transparent" : "#d1d5db",
       }}
-      className={`tracking-widest ${className}`}
+      className={`tracking-wide ${className}`}
     >
       {children}
     </motion.h2>
@@ -50,9 +49,9 @@ const AnimatedLine = ({
 };
 
 /* =========================
-   FOREVER Card Component
+   CENTER CARD
 ========================= */
-const AnimatedForever = () => {
+const AnimatedMoments = () => {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { margin: "-20% 0px -20% 0px", once: false });
 
@@ -61,17 +60,17 @@ const AnimatedForever = () => {
       ref={ref}
       initial={{ opacity: 0, y: 100 }}
       animate={{
-        opacity: inView ? 1 : 0.3,
+        opacity: inView ? 1 : 0.4,
         y: inView ? 0 : -30,
-        borderColor: inView ? gold : white,
+        borderColor: inView ? gold : "#444",
         transition: {
           duration: 1.6,
           ease: [0.22, 1, 0.36, 1],
           delay: 0.3,
         },
       }}
-      className="inline-block px-6 sm:px-10 py-4 sm:py-6 border-2 bg-transparent backdrop-blur-xl rounded-xl"
-      style={{ transform: "rotate(-2deg)", transition: "all 1.6s ease" }}
+      className="inline-block px-8 sm:px-12 py-5 sm:py-7 border bg-white/5 backdrop-blur-xl rounded-xl"
+      style={{ transform: "rotate(-1.5deg)" }}
     >
       <motion.span
         style={{
@@ -79,18 +78,16 @@ const AnimatedForever = () => {
             ? `linear-gradient(to top, ${gold}, ${white})`
             : "none",
           WebkitBackgroundClip: inView ? "text" : "unset",
-          color: inView ? "transparent" : white,
-          transition: "all 1.4s ease",
+          color: inView ? "transparent" : "#e5e7eb",
         }}
         className="
           inline-block
           font-light
           tracking-widest
-          text-transparent
           text-[clamp(2.5rem,7vw,6rem)]
         "
       >
-        FOREVER
+        MOMENTS
       </motion.span>
     </motion.div>
   );
@@ -99,12 +96,16 @@ const AnimatedForever = () => {
 /* =========================
    MAIN SECTION
 ========================= */
-const CelebrateLove: FC = () => {
+const CelebrateEvents: FC = () => {
   return (
-    <section className="relative w-full min-h-screen bg-black overflow-hidden flex items-center justify-center px-4 py-24">
+    <section className="relative w-full min-h-screen bg-gradient-to-b from-[#0b0b0f] via-[#111827] to-black overflow-hidden flex items-center justify-center px-4 py-24">
+
+      {/* subtle glow background */}
+      <div className="absolute w-[700px] h-[700px] bg-yellow-500/10 blur-[200px] rounded-full top-[-200px]" />
+
       <div className="text-center max-w-[90vw] xl:max-w-5xl space-y-14 relative z-10">
 
-        {/* Line before FOREVER */}
+        {/* Top Line */}
         <AnimatedLine
           className="
             font-light
@@ -113,13 +114,13 @@ const CelebrateLove: FC = () => {
             text-[clamp(2.2rem,6vw,5rem)]
           "
         >
-          Celebrate togetherness with moments that become
+          We design experiences and celebrations
         </AnimatedLine>
 
-        {/* FOREVER */}
-        <AnimatedForever />
+        {/* CENTER WORD */}
+        <AnimatedMoments />
 
-        {/* Line after FOREVER */}
+        {/* Bottom Line */}
         <AnimatedLine
           delay={0.2}
           className="
@@ -129,7 +130,7 @@ const CelebrateLove: FC = () => {
             text-[clamp(2.2rem,6vw,5rem)]
           "
         >
-          stories
+          that people remember forever
         </AnimatedLine>
 
       </div>
@@ -137,4 +138,4 @@ const CelebrateLove: FC = () => {
   );
 };
 
-export default CelebrateLove;
+export default CelebrateEvents;

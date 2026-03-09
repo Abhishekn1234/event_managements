@@ -5,311 +5,312 @@ import {
   motion,
   useScroll,
   useTransform,
-  AnimatePresence,
   useInView,
-  useSpring,
 } from "framer-motion";
 
+import { Calendar, Users, Sparkles, Camera, MapPin, Heart } from "lucide-react";
 import Events from "./Events";
 
 /* ----------------------------------
-   THEMES
----------------------------------- */
-/* ----------------------------------
-   ENHANCED ANGLED BLOCK
+   EVENT THEMES
 ---------------------------------- */
 
-// Enhanced theme with more properties
 interface ThemeType {
-  bg: string;
   block: string;
   glow: string;
-  text: string;
   gradient: string[];
-  pattern: string;
+  icon: React.ElementType;
 }
 
-interface AngledBlockProps {
+interface EventBlockProps {
   text: string;
-  rotateBase: number;
+  description: string;
   index: number;
   isMobile: boolean;
 }
 
-/* ================================
-   THEMES
-================================ */
-const ENHANCED_THEMES: ThemeType[] = [
-  // 👑 Champagne Gold (Luxury Wedding)
+const EVENT_THEMES: ThemeType[] = [
   {
-    bg: "transparent",
-    block: "#E6C27A",
-    glow: "rgba(230,194,122,0.35)",
-    text: "#E6C27A",
-    gradient: ["#F3E7C3", "#E6C27A", "#BFA25A"],
-    pattern: "none",
+    block: "#8B5CF6",
+    glow: "rgba(139,92,246,0.3)",
+    gradient: ["#C4B5FD", "#8B5CF6", "#6D28D9"],
+    icon: Calendar,
   },
-
-  // 🫧 Pearl Blue (Engagement / Reception)
   {
-    bg: "transparent",
-    block: "#9AD7E8",
-    glow: "rgba(154,215,232,0.35)",
-    text: "#9AD7E8",
-    gradient: ["#D9F2F8", "#9AD7E8", "#5BB8D9"],
-    pattern: "none",
+    block: "#EC4899",
+    glow: "rgba(236,72,153,0.3)",
+    gradient: ["#FBCFE8", "#EC4899", "#BE185D"],
+    icon: Heart,
   },
-
-  // 🌷 Soft Lilac (Romantic Evenings)
   {
-    bg: "transparent",
-    block: "#C9B8F2",
-    glow: "rgba(201,184,242,0.35)",
-    text: "#C9B8F2",
-    gradient: ["#EDE7FA", "#C9B8F2", "#9B8AE0"],
-    pattern: "none",
+    block: "#06B6D4",
+    glow: "rgba(6,182,212,0.3)",
+    gradient: ["#CFFAFE", "#06B6D4", "#0891B2"],
+    icon: Camera,
   },
-
-  // 🍷 Rose Wine (Celebration / Party)
   {
-    bg: "transparent",
-    block: "#E8A1A8",
-    glow: "rgba(232,161,168,0.35)",
-    text: "#E8A1A8",
-    gradient: ["#F6D2D6", "#E8A1A8", "#C86B74"],
-    pattern: "none",
+    block: "#F59E0B",
+    glow: "rgba(245,158,11,0.3)",
+    gradient: ["#FDE68A", "#F59E0B", "#D97706"],
+    icon: Users,
   },
 ];
 
+/* ----------------------------------
+   EVENT BLOCK
+---------------------------------- */
 
-/* ================================
-   ANGLED BLOCK
-================================ */
-const AngledBlock: React.FC<AngledBlockProps> = ({
+const EventBlock: React.FC<EventBlockProps> = ({
   text,
-  rotateBase,
+  description,
   index,
   isMobile,
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
-  const theme = ENHANCED_THEMES[index % ENHANCED_THEMES.length];
+  const theme = EVENT_THEMES[index % EVENT_THEMES.length];
+  const Icon = theme.icon;
 
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
 
-  const inView = useInView(ref, { once: true, amount: 0.5 });
+  const inView = useInView(ref, { once: true, amount: 0.3 });
 
-  const scale = useTransform(
-    scrollYProgress,
-    [0, 0.5, 1],
-    isMobile ? [0.92, 1, 0.92] : [0.9, 1.04, 0.92]
-  );
-
-  const rotate = useTransform(
+  const y = useTransform(
     scrollYProgress,
     [0, 1],
-    [`${rotateBase - 4}deg`, `${rotateBase + 4}deg`]
+    [isMobile ? 25 : 60, isMobile ? -25 : -60]
   );
+
+  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.6, 1, 1, 0.6]);
 
   return (
     <motion.div
       ref={ref}
-      style={{ scale, rotate }}
-      className={`relative
-        ${isMobile ? "w-[88vw] h-[70px]" : "w-[90vw] max-w-[760px] h-[120px]"}
-        rounded-[22px]
-       p-[0.75px]
-        bg-gradient-to-br from-white/12 via-white/5 to-transparent
-
-      `}
-      whileHover={{
-        scale: isMobile ? 1.02 : 1.05,
-        rotate: rotateBase + 2,
-      }}
+      style={{ y, opacity }}
+      className={`relative ${isMobile ? "w-[90vw]" : "w-[80vw] max-w-[900px]"} mx-auto`}
+      whileHover={{ scale: 1.03 }}
     >
-      {/* Glass shell */}
       <div
-        className="relative w-full h-full rounded-[20px] overflow-hidden backdrop-blur-xl"
+        className="relative rounded-2xl overflow-hidden p-6 md:p-8 backdrop-blur-xl"
         style={{
-          background:
-            "linear-gradient(180deg, rgba(255,255,255,0.08), rgba(0,0,0,0.28))",
+          background: `linear-gradient(135deg, ${theme.gradient[0]}15, ${theme.gradient[2]}30)`,
+          border: "1px solid rgba(255,255,255,0.12)",
         }}
       >
-        {/* Soft decorative orbs (NO shadow / NO blur) */}
-        <div
-          className="absolute w-28 h-28 rounded-full opacity-10"
-          style={{ background: theme.glow, top: "-35%", left: "8%" }}
+        {/* glow */}
+        <motion.div
+          className="absolute inset-0 opacity-0 group-hover:opacity-100"
+          style={{
+            background: `radial-gradient(circle, ${theme.glow}, transparent 70%)`,
+          }}
+          animate={{ scale: [1, 1.2, 1] }}
+          transition={{ duration: 5, repeat: Infinity }}
         />
-        <div
-          className="absolute w-36 h-36 rounded-full opacity-8"
-          style={{ background: theme.glow, bottom: "-45%", right: "5%" }}
-        />
 
-<motion.div
-  className="relative w-[96%] h-[85%] mx-auto my-auto rounded-[18px]
-             flex items-center justify-center overflow-hidden
-             backdrop-blur-xl"
-  style={{
-    background: "rgba(255,255,255,0.04)",
-  }}
->
-  {/* Smooth gradient ring */}
-  <div
-    className="absolute inset-0 rounded-[18px] pointer-events-none"
-    style={{
-      padding: "1.2px",
-      background: `linear-gradient(135deg, ${theme.gradient.join(",")})`,
-      WebkitMask:
-        "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
-      WebkitMaskComposite: "xor",
-      maskComposite: "exclude",
-    }}
-  />
+        <div className="relative flex items-center gap-6">
+          {/* Icon */}
+          <motion.div
+            whileHover={{ rotate: 360 }}
+            transition={{ duration: 0.6 }}
+            className="flex items-center justify-center w-16 h-16 rounded-full
+            bg-white/10 border border-white/20"
+          >
+            <Icon size={30} style={{ color: theme.block }} />
+          </motion.div>
 
-  {/* Subtle inner light sweep */}
-  <motion.div
-    className="absolute inset-0 opacity-15 pointer-events-none"
-    animate={{ x: ["-120%", "120%"] }}
-    transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-    style={{
-      background:
-        "linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent)",
-    }}
-  />
+          {/* Text */}
+          <div className="flex-1">
+            <motion.h3
+              initial={{ opacity: 0, x: -20 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              className={`${isMobile ? "text-3xl" : "text-5xl"} font-bold`}
+              style={{
+                background: `linear-gradient(135deg, ${theme.gradient.join(",")})`,
+                WebkitBackgroundClip: "text",
+                color: "transparent",
+              }}
+            >
+              {text}
+            </motion.h3>
 
-  {/* Highlighted Text */}
-  <motion.div
-    initial={{ opacity: 0, y: 16 }}
-    animate={inView ? { opacity: 1, y: 0 } : {}}
-    transition={{ duration: 0.6, ease: "easeOut" }}
-    className={`relative z-10 uppercase font-bold tracking-[3.5px]
-      ${isMobile ? "text-[21px]" : "text-[50px]"}
-      text-center select-none`}
-    style={{
-      backgroundImage: `linear-gradient(135deg, ${theme.gradient.join(",")})`,
-      WebkitBackgroundClip: "text",
-      color: "transparent",
-      textShadow: `
-        0 0 10px ${theme.glow}
-      `,
-    }}
-  >
-    {text}
-  </motion.div>
-</motion.div>
-
-
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              className="text-gray-300 mt-2"
+            >
+              {description}
+            </motion.p>
+          </div>
+        </div>
       </div>
     </motion.div>
   );
 };
 
-
 /* ----------------------------------
-   VIDEO PLACEHOLDER
+   STATS
 ---------------------------------- */
-const VideoPlaceholder = () => (
-  <div className="absolute inset-0 flex items-center justify-center text-white/80">
-    PLAY VIDEO
-  </div>
-);
+
+const EventStats = () => {
+  const stats = [
+    { label: "Events Hosted", value: "500+", icon: Calendar },
+    { label: "Happy Clients", value: "1000+", icon: Users },
+    { label: "Cities", value: "25+", icon: MapPin },
+    { label: "Photos Taken", value: "50K+", icon: Camera },
+  ];
+
+  return (
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+      {stats.map((stat, index) => {
+        const Icon = stat.icon;
+
+        return (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.1 }}
+            className="text-center p-6 rounded-2xl bg-white/5 backdrop-blur-md
+            border border-white/10"
+          >
+            <Icon className="w-8 h-8 mx-auto mb-3 text-purple-400" />
+            <div className="text-2xl font-bold text-white">{stat.value}</div>
+            <div className="text-sm text-gray-400">{stat.label}</div>
+          </motion.div>
+        );
+      })}
+    </div>
+  );
+};
 
 /* ----------------------------------
    MAIN COMPONENT
 ---------------------------------- */
-const ScrollHighlight: React.FC = () => {
-const items = [
-  { text: "DREAM WEDDINGS", rotate: 4 },
-  { text: "STYLISH CELEBRATIONS", rotate: -3 },
-  { text: "SEAMLESS PLANNING", rotate: 2 },
-  { text: "LASTING MEMORIES", rotate: -4 },
-];
 
+const ScrollHighlight: React.FC = () => {
+  const events = [
+    {
+      text: "WEDDINGS",
+      description: "Create magical wedding moments",
+    },
+    {
+      text: "CORPORATE",
+      description: "Professional and impactful events",
+    },
+    {
+      text: "SOCIAL",
+      description: "Birthdays, parties & celebrations",
+    },
+    {
+      text: "FESTIVALS",
+      description: "Large scale cultural celebrations",
+    },
+  ];
 
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const resize = () => setIsMobile(window.innerWidth < 640);
+    const resize = () => setIsMobile(window.innerWidth < 768);
     resize();
     window.addEventListener("resize", resize);
     return () => window.removeEventListener("resize", resize);
   }, []);
 
   const sectionRef = useRef<HTMLDivElement>(null);
-  const sectionInView = useInView(sectionRef, {
-    amount: isMobile ? 0.1 : 0.3,
-  });
-
-  const videoRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: videoRef,
-    offset: ["start end", "center center"],
-  });
-
-  const width = useTransform(scrollYProgress, [0, 1], ["150px", "100%"]);
-  const height = useTransform(scrollYProgress, [0, 1], ["150px", "300px"]);
-  const borderRadius = useTransform(scrollYProgress, [0, 1], ["50%", "12px"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <div
+    <motion.div
       ref={sectionRef}
-      className="w-full bg-black py-16 flex flex-col items-center space-y-16"
+      className="relative w-full min-h-screen py-24 px-6 flex flex-col items-center space-y-24 overflow-hidden"
+      animate={{
+        background: [
+          "radial-gradient(circle at 20% 20%, #4C1D95, #000 70%)",
+          "radial-gradient(circle at 80% 80%, #831843, #000 70%)",
+          "radial-gradient(circle at 20% 80%, #1E3A8A, #000 70%)",
+          "radial-gradient(circle at 80% 20%, #92400E, #000 70%)",
+          "radial-gradient(circle at 20% 20%, #4C1D95, #000 70%)",
+        ],
+      }}
+      transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
     >
-      {/* Headings */}
-      <div className="text-center space-y-2">
-        <h2 className="text-4xl font-bold text-white">
-          Experience the Difference
-        </h2>
-        <p className="text-gray-400 text-xl">Why Choose Aalizah Events</p>
-      </div>
+      {/* overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-amber-500/20" />
 
-      {/* Angled blocks */}
-      <div className="relative h-[90vh] w-full flex justify-center">
-        <div className="relative w-full max-w-[800px] space-y-6">
-          {items.map((item, i) => (
-            <AngledBlock
-              key={i}
-              text={item.text}
-              rotateBase={item.rotate}
-              index={i}
-              isMobile={isMobile}
-            />
-          ))}
+      {/* glow lights */}
+      <div className="absolute top-[-200px] left-[-150px] w-[500px] h-[500px] bg-purple-500/20 rounded-full blur-[160px]" />
+      <div className="absolute bottom-[-200px] right-[-150px] w-[500px] h-[500px] bg-pink-500/20 rounded-full blur-[160px]" />
+
+      {/* floating sparkles */}
+      {[...Array(12)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute w-2 h-2 bg-white/30 rounded-full"
+          initial={{
+            x: Math.random() * 1200,
+            y: Math.random() * 800,
+            opacity: 0,
+          }}
+          animate={{
+            y: [null, -100],
+            opacity: [0, 1, 0],
+          }}
+          transition={{
+            duration: 6 + Math.random() * 6,
+            repeat: Infinity,
+            delay: Math.random() * 4,
+          }}
+        />
+      ))}
+
+      {/* Header */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="relative text-center space-y-6 max-w-3xl"
+      >
+        <div className="flex items-center justify-center gap-2 text-purple-300">
+          <Sparkles size={18} />
+          <span className="text-xs uppercase tracking-[4px]">
+            Aalizah Events
+          </span>
+          <Sparkles size={18} />
         </div>
+
+        <h1 className="text-5xl md:text-7xl font-bold text-white">
+          Crafting{" "}
+          <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-amber-400 bg-clip-text text-transparent">
+            Unforgettable
+          </span>
+          <br />
+          Celebrations
+        </h1>
+
+        <p className="text-gray-300 text-lg md:text-xl">
+          We design extraordinary events that create lasting memories.
+        </p>
+      </motion.div>
+
+      {/* Stats */}
+      <EventStats />
+
+      {/* Event blocks */}
+      <div className="relative w-full max-w-6xl space-y-10">
+        {events.map((event, i) => (
+          <EventBlock
+            key={i}
+            text={event.text}
+            description={event.description}
+            index={i}
+            isMobile={isMobile}
+          />
+        ))}
       </div>
 
-      {/* Video */}
-      <div ref={videoRef} className="w-full flex justify-center min-h-[320px]">
-        <AnimatePresence>
-          {sectionInView && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.7 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.6 }}
-              transition={{ duration: 0.7 }}
-              className="relative"
-            >
-              <motion.div
-                style={{ width, height, borderRadius }}
-                className="bg-[#181818] overflow-hidden relative shadow-2xl"
-              >
-                <motion.div style={{ opacity }}>
-                  <VideoPlaceholder />
-                </motion.div>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-
-      {/* Events */}
       <Events />
-    </div>
+    </motion.div>
   );
 };
 
 export default ScrollHighlight;
-
