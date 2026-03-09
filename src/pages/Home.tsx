@@ -21,7 +21,7 @@ useEffect(() => {
   });
 }, []); 
   return (
-    <div className="relative bg-black text-white  overflow-hidden">
+    <div className="relative bg-gradient-to-b from-black via-gray-900 to-black text-white  overflow-hidden">
       <HeroSection onPlanClick={handlePlanClick} />
 
       <ScrollReveal><CelebrateLove/></ScrollReveal>

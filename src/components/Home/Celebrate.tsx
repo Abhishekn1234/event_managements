@@ -49,47 +49,43 @@ const AnimatedLine = ({
 };
 
 /* =========================
-   CENTER CARD
+   CENTER WORD
 ========================= */
 const AnimatedMoments = () => {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { margin: "-20% 0px -20% 0px", once: false });
 
   return (
-    <motion.div
+    <motion.span
       ref={ref}
       initial={{ opacity: 0, y: 100 }}
       animate={{
         opacity: inView ? 1 : 0.4,
         y: inView ? 0 : -30,
-        borderColor: inView ? gold : "#444",
         transition: {
           duration: 1.6,
           ease: [0.22, 1, 0.36, 1],
           delay: 0.3,
         },
       }}
-      className="inline-block px-8 sm:px-12 py-5 sm:py-7 border bg-white/5 backdrop-blur-xl rounded-xl"
-      style={{ transform: "rotate(-1.5deg)" }}
+      style={{
+        background: inView
+          ? `linear-gradient(to top, ${gold}, ${white})`
+          : "none",
+        WebkitBackgroundClip: inView ? "text" : "unset",
+        color: inView ? "transparent" : "#e5e7eb",
+      }}
+      className="
+        inline-block
+        font-light
+        tracking-widest
+        text-[clamp(2.5rem,7vw,6rem)]
+        sm:text-[clamp(3rem,7vw,6.5rem)]
+        md:text-[clamp(3.5rem,8vw,7rem)]
+      "
     >
-      <motion.span
-        style={{
-          background: inView
-            ? `linear-gradient(to top, ${gold}, ${white})`
-            : "none",
-          WebkitBackgroundClip: inView ? "text" : "unset",
-          color: inView ? "transparent" : "#e5e7eb",
-        }}
-        className="
-          inline-block
-          font-light
-          tracking-widest
-          text-[clamp(2.5rem,7vw,6rem)]
-        "
-      >
-        MOMENTS
-      </motion.span>
-    </motion.div>
+      MOMENTS
+    </motion.span>
   );
 };
 
@@ -98,20 +94,23 @@ const AnimatedMoments = () => {
 ========================= */
 const CelebrateEvents: FC = () => {
   return (
-    <section className="relative w-full min-h-screen bg-gradient-to-b from-[#0b0b0f] via-[#111827] to-black overflow-hidden flex items-center justify-center px-4 py-24">
+    <section className="relative w-full min-h-screen  overflow-hidden flex flex-col items-center justify-center px-4 sm:px-6 md:px-12 py-16 sm:py-24 md:py-32 space-y-10">
 
       {/* subtle glow background */}
-      <div className="absolute w-[700px] h-[700px] bg-yellow-500/10 blur-[200px] rounded-full top-[-200px]" />
+      <div className="absolute w-[400px] sm:w-[600px] md:w-[800px] h-[400px] sm:h-[600px] md:h-[800px] bg-yellow-500/10 blur-[150px] sm:blur-[200px] rounded-full top-[-150px] sm:top-[-180px] md:top-[-200px]" />
 
-      <div className="text-center max-w-[90vw] xl:max-w-5xl space-y-14 relative z-10">
+      <div className="text-center max-w-[90vw] xl:max-w-5xl relative z-10 space-y-8 sm:space-y-10 md:space-y-12">
 
         {/* Top Line */}
         <AnimatedLine
           className="
             font-light
             uppercase
-            leading-[1.05]
-            text-[clamp(2.2rem,6vw,5rem)]
+            leading-[1.1]
+            text-[clamp(1.8rem,5vw,3rem)]
+            sm:text-[clamp(2.2rem,6vw,4rem)]
+            md:text-[clamp(2.5rem,6.5vw,5rem)]
+            lg:text-[clamp(3rem,7vw,5.5rem)]
           "
         >
           We design experiences and celebrations
@@ -126,8 +125,11 @@ const CelebrateEvents: FC = () => {
           className="
             font-light
             uppercase
-            leading-[1.05]
-            text-[clamp(2.2rem,6vw,5rem)]
+            leading-[1.1]
+            text-[clamp(1.8rem,5vw,3rem)]
+            sm:text-[clamp(2.2rem,6vw,4rem)]
+            md:text-[clamp(2.5rem,6.5vw,5rem)]
+            lg:text-[clamp(3rem,7vw,5.5rem)]
           "
         >
           that people remember forever
