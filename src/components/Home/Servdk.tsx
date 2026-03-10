@@ -101,8 +101,8 @@ const EventBlock: React.FC<EventBlockProps> = ({ text, description, index, isMob
 ------------------- */
 const EventStats = () => {
   const stats = [
-    { label: "Events Hosted", value: "500+", icon: Calendar },
-    { label: "Happy Clients", value: "1000+", icon: Users },
+    { label: "Events Hosted", value: "250+", icon: Calendar },
+    { label: "Happy Clients", value: "500+", icon: Users },
     { label: "Cities", value: "25+", icon: MapPin },
     { label: "Photos Taken", value: "50K+", icon: Camera },
   ];
