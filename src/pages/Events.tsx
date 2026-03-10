@@ -17,7 +17,7 @@ const eventData = [
         date: "SEP 07",
         time: "6:00 PM",
         location: "ALOFT AL MINA, BURDUBAI, UAE",
-         image: "/events (2).jpg",
+         image: "/cams.jpeg",
     },
     {
         id: 3,
