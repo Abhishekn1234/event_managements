@@ -103,7 +103,7 @@ export default function Footer() {
 
             <p>
               <span className="text-[#D4AF37]">Phone:</span><br />
-              +971 50 203 7669
+             +971-521775669
             </p>
 
             <p>
