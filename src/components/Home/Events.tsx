@@ -29,7 +29,7 @@ export default function Events() {
     { title: "Luxury Wedding", description: "Elegant weddings crafted with perfection", image: "/Orlando Wedding Venues - The Biggest List Online! - Wedding Venue Map.jpg" },
     { title: "Corporate Gala", description: "Professional events that elevate your brand", image: "/Modern Mythology Gala_ A Celestial Take on Luxury Event Design - A Sparkly Life for Me.jpg" },
     { title: "Private Party", description: "Exclusive celebrations for special moments", image: "/jack-dong-yw2jI1CgrJE-unsplash.jpg" },
-    { title: "Festival Event", description: "Large scale entertainment & festivals", image: "/holi.jpg" },
+    { title: "Festival Event", description: "Large scale entertainment & festivals", image: "/tony-pham-FUmDe-Bx1LA-unsplash.jpg" },
     { title: "Brand Launch", description: "Create unforgettable brand experiences", image: "/Highlight your brand with Sense😎.jpg" },
     { title: "Luxury Dining", description: "Premium dining & gala experiences", image: "/Legends Lunch at Grand Hyatt.jpg" },
   ];

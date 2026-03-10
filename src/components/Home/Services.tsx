@@ -36,7 +36,7 @@ const ServicesSection: FC = () => {
       subtitle: "EVENT",
       description: "EXPERIENCES",
       image: {
-        src: "/fotografo-samuel-cruz-QB3loRGh3ZQ-unsplash.jpg",
+        src: "/mathis-payet-descombes-FeO_txj9yVc-unsplash.jpg",
         title: "Luxury Wedding Planning",
       },
     },
