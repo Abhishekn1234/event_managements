@@ -8,11 +8,16 @@ const HeroSection: FC<HeroSectionProps> = ({ onPlanClick }) => {
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <img
-        src="/jkks.jpg" // replace with your image path
-        alt="Event Background"
-        className="absolute inset-0 w-full h-full object-cover"
-      />
+     <video
+  src="/homevideo.mp4" // replace with your video path
+  autoPlay
+  loop
+  muted
+  playsInline
+  className="absolute inset-0 w-full h-full object-cover"
+>
+  Your browser does not support the video tag.
+</video>
 
       {/* Dark Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/80" />
