@@ -36,7 +36,7 @@ const ServicesSection: FC = () => {
       subtitle: "EVENT",
       description: "EXPERIENCES",
       image: {
-        src: "/mathis-payet-descombes-FeO_txj9yVc-unsplash.jpg",
+        src: "/Windows on the Water at Frogbridge Wedding _ Shannon and Chris.jpg",
         title: "Luxury Wedding Planning",
       },
     },

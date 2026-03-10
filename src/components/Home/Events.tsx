@@ -76,7 +76,7 @@ export default function Events() {
       >
         <div className="relative rounded-3xl overflow-hidden group cursor-pointer">
           <img
-            src="/jakob-owens-SiniLJkXhMc-unsplash.jpg"
+            src="/22 Wedding Table Setting Ideas for Every Season _ Deer Pearl Flowers - Part 2.jpg"
             className="w-full h-[200px] sm:h-[300px] md:h-[400px] object-cover group-hover:scale-105 transition duration-700"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
