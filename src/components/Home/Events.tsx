@@ -28,8 +28,8 @@ export default function Events() {
   const events = [
     { title: "Luxury Wedding", description: "Elegant weddings crafted with perfection", image: "/Orlando Wedding Venues - The Biggest List Online! - Wedding Venue Map.jpg" },
     { title: "Corporate Gala", description: "Professional events that elevate your brand", image: "/Modern Mythology Gala_ A Celestial Take on Luxury Event Design - A Sparkly Life for Me.jpg" },
-    { title: "Private Party", description: "Exclusive celebrations for special moments", image: "/The MOMENT! ✨.jpg" },
-    { title: "Festival Event", description: "Large scale entertainment & festivals", image: "/Joyful people celebrating with sparklers and confetti celebration party.jpg" },
+    { title: "Private Party", description: "Exclusive celebrations for special moments", image: "/jack-dong-yw2jI1CgrJE-unsplash.jpg" },
+    { title: "Festival Event", description: "Large scale entertainment & festivals", image: "/holi.jpg" },
     { title: "Brand Launch", description: "Create unforgettable brand experiences", image: "/Highlight your brand with Sense😎.jpg" },
     { title: "Luxury Dining", description: "Premium dining & gala experiences", image: "/Legends Lunch at Grand Hyatt.jpg" },
   ];
@@ -76,7 +76,7 @@ export default function Events() {
       >
         <div className="relative rounded-3xl overflow-hidden group cursor-pointer">
           <img
-            src="/Wedding Decor.jpg"
+            src="/jakob-owens-SiniLJkXhMc-unsplash.jpg"
             className="w-full h-[200px] sm:h-[300px] md:h-[400px] object-cover group-hover:scale-105 transition duration-700"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />

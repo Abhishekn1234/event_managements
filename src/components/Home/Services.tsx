@@ -36,14 +36,14 @@ const ServicesSection: FC = () => {
       subtitle: "EVENT",
       description: "EXPERIENCES",
       image: {
-        src: "/luxury.jpg",
+        src: "/fotografo-samuel-cruz-QB3loRGh3ZQ-unsplash.jpg",
         title: "Luxury Wedding Planning",
       },
     },
     {
       type: "images",
       images: [
-        { src: "/cooperaatevents.jpg", title: "Corporate Events" },
+        { src: "/ray-hennessy-gdTxVSAE5sk-unsplash.jpg", title: "Corporate Events" },
         { src: "/privateparties.jpg", title: "Private Celebrations" },
         { src: "/eventphotography.jpg", title: "Event Photography" },
       ],
