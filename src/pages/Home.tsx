@@ -13,6 +13,10 @@ export default function Home() {
   const handlePlanClick = () => {
     const reachUs = document.getElementById("reach-us");
     if (reachUs) reachUs.scrollIntoView({ behavior: "smooth" });
+    const phoneNumber = "+971521775669"; // WhatsApp number without dashes
+  const message = encodeURIComponent("Hello! I want to get in touch."); // optional pre-filled message
+  const url = `https://wa.me/${phoneNumber}?text=${message}`;
+  window.open(url, "_blank"); // opens in a new tab
   };
 useEffect(() => {
   window.scrollTo({

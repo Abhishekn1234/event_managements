@@ -43,7 +43,7 @@ const ServicesSection: FC = () => {
     {
       type: "images",
       images: [
-        { src: "/redd-francisco-PTRzqc_h1r4-unsplash.jpg", title: "Corporate Events" },
+        { src: "/Connecting, collaborating, and cultivating new opportunities.jpg", title: "Corporate Events" },
         { src: "/privateparties.jpg", title: "Private Celebrations" },
         { src: "/eventphotography.jpg", title: "Event Photography" },
       ],

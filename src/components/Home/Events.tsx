@@ -6,7 +6,7 @@ import { useState, useEffect, useRef } from "react";
 
 export default function Events() {
   const sectionRef = useRef<HTMLElement | null>(null);
-
+    const [isClicked, setIsClicked] = useState(false);
   const [ref, inView] = useInView({
     threshold: 0.25,
     triggerOnce: false,
@@ -75,10 +75,19 @@ export default function Events() {
         className="relative max-w-6xl mx-auto mb-12 sm:mb-16 md:mb-20"
       >
         <div className="relative rounded-3xl overflow-hidden group cursor-pointer">
-          <img
-            src="/22 Wedding Table Setting Ideas for Every Season _ Deer Pearl Flowers - Part 2.jpg"
-            className="w-full h-[200px] sm:h-[300px] md:h-[400px] object-cover group-hover:scale-105 transition duration-700"
-          />
+        <img
+        src="/22 Wedding Table Setting Ideas for Every Season _ Deer Pearl Flowers - Part 2.jpg"
+        alt="Wedding Table"
+        className={`
+          w-full 
+          h-[200px] sm:h-[300px] md:h-[400px] 
+          object-cover 
+          cursor-pointer 
+          transition-transform duration-500 
+          ${isClicked ? "scale-150 z-50 relative" : "group-hover:scale-105"}
+        `}
+        onClick={() => setIsClicked(!isClicked)}
+      />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
           <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-4 sm:left-6 md:left-8 text-white">
             <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-1 sm:mb-2">
