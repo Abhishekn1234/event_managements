@@ -76,7 +76,7 @@ export default function Events() {
       >
         <div className="relative rounded-3xl overflow-hidden group cursor-pointer">
         <img
-        src="/22 Wedding Table Setting Ideas for Every Season _ Deer Pearl Flowers - Part 2.jpg"
+        src="/Ritz Carlton Laguna Niguel Indian Wedding _ Puja & Sahil.jpg"
         alt="Wedding Table"
         className={`
           w-full 

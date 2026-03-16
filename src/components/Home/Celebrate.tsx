@@ -3,8 +3,12 @@
 import { FC, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
-const gold = "#D4AF37";
-const white = "#ffffff";
+/* =========================
+   Colors
+========================= */
+const colorStart = "#00fff7"; // neon cyan/teal
+const colorMid = "#8a2be2";   // violet
+const colorEnd = "#ff6ec7";   // pink
 
 /* =========================
    Animated Line
@@ -36,7 +40,7 @@ const AnimatedLine = ({
       }}
       style={{
         background: inView
-          ? `linear-gradient(to top, ${gold}, ${white})`
+          ? `linear-gradient(to top, ${colorStart}, ${colorMid}, ${colorEnd})`
           : "none",
         WebkitBackgroundClip: inView ? "text" : "unset",
         color: inView ? "transparent" : "#d1d5db",
@@ -70,7 +74,7 @@ const AnimatedMoments = () => {
       }}
       style={{
         background: inView
-          ? `linear-gradient(to top, ${gold}, ${white})`
+          ? `linear-gradient(to top, ${colorStart}, ${colorMid}, ${colorEnd})`
           : "none",
         WebkitBackgroundClip: inView ? "text" : "unset",
         color: inView ? "transparent" : "#e5e7eb",
@@ -94,10 +98,10 @@ const AnimatedMoments = () => {
 ========================= */
 const CelebrateEvents: FC = () => {
   return (
-    <section className="relative w-full min-h-screen  overflow-hidden flex flex-col items-center justify-center px-4 sm:px-6 md:px-12 py-16 sm:py-24 md:py-32 space-y-10">
+    <section className="relative w-full min-h-screen overflow-hidden flex flex-col items-center justify-center px-4 sm:px-6 md:px-12 py-16 sm:py-24 md:py-32 space-y-10">
 
       {/* subtle glow background */}
-      <div className="absolute w-[400px] sm:w-[600px] md:w-[800px] h-[400px] sm:h-[600px] md:h-[800px] bg-yellow-500/10 blur-[150px] sm:blur-[200px] rounded-full top-[-150px] sm:top-[-180px] md:top-[-200px]" />
+      <div className="absolute w-[400px] sm:w-[600px] md:w-[800px] h-[400px] sm:h-[600px] md:h-[800px] bg-gradient-to-tr from-cyan-500/10 via-violet-500/10 to-pink-500/10 blur-[150px] sm:blur-[200px] rounded-full top-[-150px] sm:top-[-180px] md:top-[-200px]" />
 
       <div className="text-center max-w-[90vw] xl:max-w-5xl relative z-10 space-y-8 sm:space-y-10 md:space-y-12">
 
