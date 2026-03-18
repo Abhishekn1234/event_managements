@@ -9,7 +9,7 @@ const HeroSection: FC<HeroSectionProps> = ({ onPlanClick }) => {
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
      <video
-  src="/14988161-hd_1280_720_50fps.mp4" // replace with your video path
+  src="/8777092-uhd_2160_3840_25fps.mp4" // replace with your video path
   autoPlay
   loop
   muted
@@ -20,7 +20,7 @@ const HeroSection: FC<HeroSectionProps> = ({ onPlanClick }) => {
 </video>
 
       {/* Dark Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/80" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/10 to-black/10" />
 
       {/* Content */}
       <div className="relative z-10 text-center max-w-4xl px-4 sm:px-6 md:px-8 space-y-6 sm:space-y-8">
