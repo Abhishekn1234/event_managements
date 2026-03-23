@@ -218,11 +218,19 @@ const CelebrateMoments = () => {
         </div>
 
         {/* CTA */}
-        <div className="flex flex-col sm:flex-row gap-5 justify-center items-center pt-6">
-          <button className="px-8 py-4 border border-amber-400 rounded-full text-amber-200 hover:bg-amber-400/10 transition">
-            Start your journey
-          </button>
-        </div>
+       <div className="flex flex-col sm:flex-row gap-5 justify-center items-center pt-6">
+  <button
+    onClick={() =>
+      window.open(
+        "https://wa.me/971502037669?text=Hello%20Aalizah%20Events,%20I%20would%20like%20to%20plan%20an%20event",
+        "_blank"
+      )
+    }
+    className="px-8 py-4 border border-amber-400 rounded-full text-amber-200 hover:bg-amber-400/10 hover:shadow-[0_0_20px_rgba(251,191,36,0.4)] transition"
+  >
+    Start your journey
+  </button>
+</div>
       </div>
     </section>
   );
