@@ -1,147 +1,117 @@
 "use client";
 
-import { FC, useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { FC } from "react";
+import { motion, Variants } from "framer-motion";
 
 /* =========================
-   Colors
+   Animation Variants
 ========================= */
-const colorStart = "#00fff7"; // neon cyan/teal
-const colorMid = "#8a2be2";   // violet
-const colorEnd = "#ff6ec7";   // pink
+const container = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
 
-/* =========================
-   Animated Line
-========================= */
-const AnimatedLine = ({
-  children,
-  delay = 0,
-  className = "",
-}: {
-  children: React.ReactNode;
-  delay?: number;
-  className?: string;
-}) => {
-  const ref = useRef<HTMLHeadingElement>(null);
-  const inView = useInView(ref, { margin: "-20% 0px -20% 0px", once: false });
-
-  return (
-    <motion.h2
-      ref={ref}
-      initial={{ opacity: 0, y: 100 }}
-      animate={{
-        opacity: inView ? 1 : 0.3,
-        y: inView ? 0 : -30,
-        transition: {
-          duration: 1.6,
-          ease: [0.22, 1, 0.36, 1],
-          delay,
-        },
-      }}
-      style={{
-        background: inView
-          ? `linear-gradient(to top, ${colorStart}, ${colorMid}, ${colorEnd})`
-          : "none",
-        WebkitBackgroundClip: inView ? "text" : "unset",
-        color: inView ? "transparent" : "#d1d5db",
-      }}
-      className={`tracking-wide ${className}`}
-    >
-      {children}
-    </motion.h2>
-  );
+const fadeUp :Variants= {
+  hidden: { opacity: 0, y: 60 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
 };
 
 /* =========================
-   CENTER WORD
+   MAIN COMPONENT
 ========================= */
-const AnimatedMoments = () => {
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { margin: "-20% 0px -20% 0px", once: false });
-
+const EventShowcase: FC = () => {
   return (
-    <motion.span
-      ref={ref}
-      initial={{ opacity: 0, y: 100 }}
-      animate={{
-        opacity: inView ? 1 : 0.4,
-        y: inView ? 0 : -30,
-        transition: {
-          duration: 1.6,
-          ease: [0.22, 1, 0.36, 1],
-          delay: 0.3,
-        },
-      }}
-      style={{
-        background: inView
-          ? `linear-gradient(to top, ${colorStart}, ${colorMid}, ${colorEnd})`
-          : "none",
-        WebkitBackgroundClip: inView ? "text" : "unset",
-        color: inView ? "transparent" : "#e5e7eb",
-      }}
-      className="
-        inline-block
-        font-light
-        tracking-widest
-        text-[clamp(2.5rem,7vw,6rem)]
-        sm:text-[clamp(3rem,7vw,6.5rem)]
-        md:text-[clamp(3.5rem,8vw,7rem)]
-      "
-    >
-      MOMENTS
-    </motion.span>
-  );
-};
+    <section className="w-full min-h-screen bg-zinc-950 text-white flex items-center px-6 sm:px-10 lg:px-20 py-20">
 
-/* =========================
-   MAIN SECTION
-========================= */
-const CelebrateEvents: FC = () => {
-  return (
-    <section className="relative w-full min-h-screen overflow-hidden flex flex-col items-center justify-center px-4 sm:px-6 md:px-12 py-16 sm:py-24 md:py-32 space-y-10">
+      <div className="grid lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto w-full">
 
-      {/* subtle glow background */}
-      <div className="absolute w-[400px] sm:w-[600px] md:w-[800px] h-[400px] sm:h-[600px] md:h-[800px] bg-gradient-to-tr from-cyan-500/10 via-violet-500/10 to-pink-500/10 blur-[150px] sm:blur-[200px] rounded-full top-[-150px] sm:top-[-180px] md:top-[-200px]" />
-
-      <div className="text-center max-w-[90vw] xl:max-w-5xl relative z-10 space-y-8 sm:space-y-10 md:space-y-12">
-
-        {/* Top Line */}
-        <AnimatedLine
-          className="
-            font-light
-            uppercase
-            leading-[1.1]
-            text-[clamp(1.8rem,5vw,3rem)]
-            sm:text-[clamp(2.2rem,6vw,4rem)]
-            md:text-[clamp(2.5rem,6.5vw,5rem)]
-            lg:text-[clamp(3rem,7vw,5.5rem)]
-          "
+        {/* LEFT SIDE - TEXT */}
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="space-y-6"
         >
-          We design experiences and celebrations
-        </AnimatedLine>
+          <motion.h1
+            variants={fadeUp}
+            className="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight"
+          >
+            Crafting Unforgettable <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-pink-500">
+              Event Experiences
+            </span>
+          </motion.h1>
 
-        {/* CENTER WORD */}
-        <AnimatedMoments />
+          <motion.p
+            variants={fadeUp}
+            className="text-gray-400 text-lg max-w-lg"
+          >
+            From intimate gatherings to grand celebrations, we create immersive
+            environments that inspire, connect, and leave lasting impressions.
+          </motion.p>
 
-        {/* Bottom Line */}
-        <AnimatedLine
-          delay={0.2}
-          className="
-            font-light
-            uppercase
-            leading-[1.1]
-            text-[clamp(1.8rem,5vw,3rem)]
-            sm:text-[clamp(2.2rem,6vw,4rem)]
-            md:text-[clamp(2.5rem,6.5vw,5rem)]
-            lg:text-[clamp(3rem,7vw,5.5rem)]
-          "
+          <motion.div variants={fadeUp} className="flex gap-4 flex-wrap">
+            <button className="px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-pink-500 font-medium">
+              Explore Services
+            </button>
+            <button className="px-6 py-3 rounded-xl border border-white/20 hover:bg-white/10 transition">
+              View Portfolio
+            </button>
+          </motion.div>
+        </motion.div>
+
+        {/* RIGHT SIDE - CARDS */}
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="grid sm:grid-cols-2 gap-6"
         >
-          that people remember forever
-        </AnimatedLine>
+          {[
+            {
+              title: "Weddings",
+              desc: "Elegant, timeless, and personalized celebrations.",
+            },
+            {
+              title: "Corporate Events",
+              desc: "Professional events that elevate your brand.",
+            },
+            {
+              title: "Private Parties",
+              desc: "Unique themes and unforgettable experiences.",
+            },
+            {
+              title: "Luxury Decor",
+              desc: "Premium styling with attention to detail.",
+            },
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              variants={fadeUp}
+              className="p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:scale-[1.03] transition"
+            >
+              <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+              <p className="text-gray-400 text-sm">{item.desc}</p>
+            </motion.div>
+          ))}
+        </motion.div>
 
       </div>
     </section>
   );
 };
 
-export default CelebrateEvents;
+export default EventShowcase;
