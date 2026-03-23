@@ -222,7 +222,7 @@ const CelebrateMoments = () => {
   <button
     onClick={() =>
       window.open(
-        "https://wa.me/971502037669?text=Hello%20Aalizah%20Events,%20I%20would%20like%20to%20plan%20an%20event",
+        "https://wa.me/971521775669?text=Hello%20Aalizah%20Events,%20I%20would%20like%20to%20plan%20an%20event",
         "_blank"
       )
     }
