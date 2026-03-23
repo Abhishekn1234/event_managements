@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="relative text-gray-300 pt-24 pb-10 overflow-hidden bg-gradient-to-b from-[#0a0a0a] via-black to-[#050505]">
 
       {/* GOLD TOP BORDER */}
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent"></div>
+    
 
       {/* MAIN GRID */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-5 gap-8">
