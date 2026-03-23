@@ -9,7 +9,7 @@ const HeroSection: FC<HeroSectionProps> = ({ onPlanClick }) => {
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
      <video
-  src="/arab-wedding.mp4" // replace with your video path
+  src="/15497090-uhd_3840_2160_30fps.mp4" // replace with your video path
   autoPlay
   loop
   muted
