@@ -1,117 +1,231 @@
 "use client";
 
-import { FC } from "react";
-import { motion, Variants } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
+import { motion, useInView } from "framer-motion";
 
 /* =========================
-   Animation Variants
+   Colors
 ========================= */
-const container = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
+const colorA = "#FFB347";
+const colorB = "#FF6B6B";
+const colorC = "#C44569";
+const colorD = "#F9D56E";
+const colorE = "#E84A5F";
+
+/* =========================
+   Animated Word
+========================= */
+const AnimatedWord = ({
+  children,
+  delay = 0,
+  className = "",
+  gradientColors = [colorA, colorB, colorC],
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  className?: string;
+  gradientColors?: string[];
+}) => {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, {
+    margin: "-15% 0px -15% 0px",
+    amount: 0.3,
+  });
+
+  return (
+    <span
+      ref={ref}
+      className={`inline-block ${className}`}
+      style={{
+        opacity: inView ? 1 : 0.4,
+        transform: inView ? "translateY(0px)" : "translateY(25px)",
+        background: inView
+          ? `linear-gradient(135deg, ${gradientColors.join(", ")})`
+          : "none",
+        WebkitBackgroundClip: inView ? "text" : "unset",
+        color: inView ? "transparent" : "#9ca3af",
+        transition: "all 0.8s ease",
+        transitionDelay: `${delay}s`,
+        fontWeight: 600,
+      }}
+    >
+      {children}
+    </span>
+  );
 };
 
-const fadeUp :Variants= {
-  hidden: { opacity: 0, y: 60 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.8,
-      ease: "easeOut",
-    },
-  },
+/* =========================
+   Split Phrase
+========================= */
+const SplitPhrase = ({
+  phrase,
+  baseDelay = 0,
+  wordClassName = "",
+  gradientOverride,
+}: {
+  phrase: string;
+  baseDelay?: number;
+  wordClassName?: string;
+  gradientOverride?: string[];
+}) => {
+  return (
+    <div className="flex flex-wrap justify-center gap-x-5 gap-y-3">
+      {phrase.split(" ").map((word, i) => (
+        <AnimatedWord
+          key={i}
+          delay={baseDelay + i * 0.08}
+          className={wordClassName}
+          gradientColors={gradientOverride || [colorA, colorB, colorC]}
+        >
+          {word}
+        </AnimatedWord>
+      ))}
+    </div>
+  );
 };
+
+/* =========================
+   Glow Orb
+========================= */
+const GlowOrb = ({
+  size,
+  color,
+  top,
+  left,
+}: {
+  size: string;
+  color: string;
+  top: string;
+  left: string;
+}) => (
+  <div
+    className={`absolute ${size} rounded-full bg-gradient-to-r ${color} blur-[100px] opacity-70 pointer-events-none animate-pulse`}
+    style={{ top, left }}
+  />
+);
 
 /* =========================
    MAIN COMPONENT
 ========================= */
-const EventShowcase: FC = () => {
+const CelebrateMoments = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [mouse, setMouse] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const move = (e: MouseEvent) => {
+      if (!sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      setMouse({ x, y });
+    };
+    window.addEventListener("mousemove", move);
+    return () => window.removeEventListener("mousemove", move);
+  }, []);
+
   return (
-    <section className="w-full min-h-screen bg-zinc-950 text-white flex items-center px-6 sm:px-10 lg:px-20 py-20">
+    <section
+      ref={sectionRef}
+      className="relative w-full min-h-screen flex items-center justify-center px-6 md:px-16 py-20 bg-gradient-to-br from-[#0a0c10] via-[#11141c] to-[#0b0e14] overflow-hidden"
+    >
+      {/* Parallax Glow */}
+      <div
+        className="absolute w-[700px] h-[700px] rounded-full bg-gradient-to-r from-orange-400/10 to-pink-500/10 blur-[140px]"
+        style={{
+          transform: `translate(${mouse.x * 25}px, ${mouse.y * 20}px)`,
+          top: "10%",
+          left: "-15%",
+        }}
+      />
 
-      <div className="grid lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto w-full">
+      <div
+        className="absolute w-[800px] h-[800px] rounded-full bg-gradient-to-l from-yellow-300/10 to-red-400/10 blur-[160px]"
+        style={{
+          transform: `translate(${mouse.x * -20}px, ${mouse.y * -15}px)`,
+          bottom: "-20%",
+          right: "-10%",
+        }}
+      />
 
-        {/* LEFT SIDE - TEXT */}
+      {/* Extra Glow */}
+      <GlowOrb
+        size="w-[400px] h-[400px]"
+        color="from-rose-300/10 to-amber-200/10"
+        top="60%"
+        left="-10%"
+      />
+
+      <div className="relative z-10 text-center max-w-6xl space-y-14">
+
+        {/* Tagline */}
         <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="space-y-6"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="inline-block px-6 py-2 rounded-full bg-white/5 border border-white/10"
         >
+          <span className="text-xs uppercase tracking-[0.3em] text-amber-200">
+            Curated for the extraordinary
+          </span>
+        </motion.div>
+
+        {/* Main Text */}
+        <div className="space-y-4">
+          <SplitPhrase
+            phrase="Where every"
+            baseDelay={0.1}
+            wordClassName="text-5xl md:text-8xl font-bold"
+            gradientOverride={[colorA, colorD, colorB]}
+          />
+
+          <SplitPhrase
+            phrase="gathering becomes"
+            baseDelay={0.3}
+            wordClassName="text-5xl md:text-8xl font-bold"
+            gradientOverride={[colorB, colorC, colorE]}
+          />
+
           <motion.h1
-            variants={fadeUp}
-            className="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight"
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.5 }}
+            className="text-[clamp(3rem,10vw,8rem)] font-black bg-gradient-to-r from-yellow-300 via-red-400 to-pink-500 bg-clip-text text-transparent"
           >
-            Crafting Unforgettable <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-pink-500">
-              Event Experiences
-            </span>
+            UNFORGETTABLE
           </motion.h1>
+        </div>
 
-          <motion.p
-            variants={fadeUp}
-            className="text-gray-400 text-lg max-w-lg"
-          >
-            From intimate gatherings to grand celebrations, we create immersive
-            environments that inspire, connect, and leave lasting impressions.
-          </motion.p>
-
-          <motion.div variants={fadeUp} className="flex gap-4 flex-wrap">
-            <button className="px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-pink-500 font-medium">
-              Explore Services
-            </button>
-            <button className="px-6 py-3 rounded-xl border border-white/20 hover:bg-white/10 transition">
-              View Portfolio
-            </button>
-          </motion.div>
-        </motion.div>
-
-        {/* RIGHT SIDE - CARDS */}
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="grid sm:grid-cols-2 gap-6"
+        {/* Middle */}
+        <motion.h2
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="text-[clamp(2.5rem,8vw,6rem)] font-black uppercase bg-gradient-to-r from-amber-300 to-pink-500 bg-clip-text text-transparent"
         >
-          {[
-            {
-              title: "Weddings",
-              desc: "Elegant, timeless, and personalized celebrations.",
-            },
-            {
-              title: "Corporate Events",
-              desc: "Professional events that elevate your brand.",
-            },
-            {
-              title: "Private Parties",
-              desc: "Unique themes and unforgettable experiences.",
-            },
-            {
-              title: "Luxury Decor",
-              desc: "Premium styling with attention to detail.",
-            },
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              variants={fadeUp}
-              className="p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:scale-[1.03] transition"
-            >
-              <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-              <p className="text-gray-400 text-sm">{item.desc}</p>
-            </motion.div>
-          ))}
-        </motion.div>
+          Moments
+        </motion.h2>
 
+        {/* Bottom */}
+        <div className="space-y-3">
+          <SplitPhrase
+            phrase="designed to echo"
+            baseDelay={0.3}
+            wordClassName="text-3xl md:text-6xl"
+          />
+          <SplitPhrase
+            phrase="through time & hearts"
+            baseDelay={0.5}
+            wordClassName="text-3xl md:text-6xl"
+          />
+        </div>
+
+        {/* CTA */}
+        <div className="flex flex-col sm:flex-row gap-5 justify-center items-center pt-6">
+          <button className="px-8 py-4 border border-amber-400 rounded-full text-amber-200 hover:bg-amber-400/10 transition">
+            Start your journey
+          </button>
+        </div>
       </div>
     </section>
   );
 };
 
-export default EventShowcase;
+export default CelebrateMoments;
