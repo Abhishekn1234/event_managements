@@ -216,10 +216,12 @@ const descText = "text-white";
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.3 }}
             >
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-yellow-400">
-                Wedding Types
-              </h2>
-              <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto">
+          <h2 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-6 ${headingGradient}`}>
+              Wedding Types
+            </h2>
+
+
+      <p className={`${descText} text-lg md:text-xl max-w-2xl mx-auto`}>
                 From luxury venues to intimate beachside vows, we design experiences that reflect your love story.
               </p>
             </motion.div>
@@ -302,7 +304,7 @@ const descText = "text-white";
 
                   {/* Text Content */}
                   <div className="w-full md:w-1/2 flex flex-col gap-3 text-left">
-                    <h3 className="text-2xl md:text-3xl font-bold text-white transition-colors duration-300">
+                   <h3 className={`text-3xl md:text-3xl font-bold text-transparent ${headingGradient}`}>
                       {item.title}
                     </h3>
                     <ul className="mt-3 list-disc list-inside space-y-1 text-white">
@@ -321,216 +323,250 @@ const descText = "text-white";
       </section>
 
       {/* OUR PLANNING PROCESS SECTION */}
-      <section className="w-full min-h-screen py-24 px-6 bg-gradient-to-b from-gray-900 to-black">
-        <div className="max-w-6xl mx-auto">
-          <ScrollReveal 
-            showProgress={section3Show} 
-            direction="up"
-          >
-            <motion.div 
-              className="text-center mb-20"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-yellow-400">
-                Our Planning Process
-              </h2>
-              <p className="text-white/80 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-                We believe in a stress-free journey. Our process is designed to be 
-                collaborative and transparent, ensuring your vision comes to life.
-              </p>
-            </motion.div>
+     <section className="w-full min-h-screen py-24 px-6 bg-gradient-to-b from-gray-900 to-black">
+  <div className="max-w-6xl mx-auto">
+    <ScrollReveal showProgress={section3Show} direction="up">
+      <motion.div 
+        className="text-center mb-20"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        {/* ✅ FIXED HEADING */}
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent">
+          Our Planning Process
+        </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                { 
-                  num: "01", 
-                  title: "Discovery & Vision", 
-                  desc: "We start with a detailed consultation to understand your unique story, style, and what you envision for your big day.",
-                  color: "from-orange-500 to-yellow-500"
-                },
-                { 
-                  num: "02", 
-                  title: "Design & Logistics", 
-                  desc: "We craft a comprehensive plan, from vendor selection and budget management to a detailed timeline and creative design.",
-                  color: "from-yellow-500 to-orange-500"
-                },
-                { 
-                  num: "03", 
-                  title: "Execution & Celebration", 
-                  desc: "On your wedding day, we handle every detail so you can relax, be present, and celebrate with the people you love most.",
-                  color: "from-orange-600 to-yellow-600"
-                },
-              ].map((item, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ y: 60, opacity: 0, scale: 0.9 }}
-                  whileInView={{ y: 0, opacity: 1, scale: 1 }}
-                  transition={{ 
-                    duration: 0.6, 
-                    ease: "easeOut",
-                    delay: idx * 0.15 
-                  }}
-                  viewport={{ once: true }}
-                  whileHover={{ y: -10, transition: { duration: 0.3, ease: "easeOut" } }}
-                  className="relative group"
-                >
-                  <div className={`absolute -inset-1 bg-gradient-to-r ${item.color} rounded-3xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300`} />
-                  <div className="relative bg-gradient-to-b from-gray-900 to-black p-8 rounded-3xl border border-white/10 backdrop-blur-sm">
-                    <span className={`text-6xl font-black bg-gradient-to-r ${item.color} bg-clip-text text-transparent`}>
-                      {item.num}
-                    </span>
-                    <h3 className="mt-6 text-2xl font-bold text-white">{item.title}</h3>
-                    <p className="mt-4 text-white/80 leading-relaxed">{item.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
+        {/* ✅ PURE WHITE TEXT */}
+        <p className="text-white text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+          We believe in a stress-free journey. Our process is designed to be 
+          collaborative and transparent, ensuring your vision comes to life.
+        </p>
+      </motion.div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          { 
+            num: "01", 
+            title: "Discovery & Vision", 
+            desc: "We start with a detailed consultation to understand your unique story, style, and what you envision for your big day.",
+          },
+          { 
+            num: "02", 
+            title: "Design & Logistics", 
+            desc: "We craft a comprehensive plan, from vendor selection and budget management to a detailed timeline and creative design.",
+          },
+          { 
+            num: "03", 
+            title: "Execution & Celebration", 
+            desc: "On your wedding day, we handle every detail so you can relax, be present, and celebrate with the people you love most.",
+          },
+        ].map((item, idx) => (
+          <motion.div
+            key={idx}
+            initial={{ y: 60, opacity: 0, scale: 0.9 }}
+            whileInView={{ y: 0, opacity: 1, scale: 1 }}
+            transition={{ 
+              duration: 0.6, 
+              ease: "easeOut",
+              delay: idx * 0.15 
+            }}
+            viewport={{ once: true }}
+            whileHover={{ y: -10 }}
+            className="relative group"
+          >
+            {/* 🔥 CLEANER GLOW (same theme) */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-pink-500 to-yellow-500 rounded-3xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300" />
+
+            <div className="relative bg-gradient-to-b from-gray-900 to-black p-8 rounded-3xl border border-white/10 backdrop-blur-sm">
+              
+              {/* ✅ NUMBER GRADIENT UPDATED */}
+              <span className="text-6xl font-black bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent">
+                {item.num}
+              </span>
+
+              {/* ✅ TITLE */}
+              <h3 className="mt-6 text-2xl font-bold text-white">
+                {item.title}
+              </h3>
+
+              {/* ✅ DESCRIPTION PURE WHITE */}
+              <p className="mt-4 text-white leading-relaxed">
+                {item.desc}
+              </p>
+
             </div>
-          </ScrollReveal>
-        </div>
-      </section>
+          </motion.div>
+        ))}
+      </div>
+    </ScrollReveal>
+  </div>
+</section>
 
       {/* PRE-WEDDING EVENTS SECTION */}
       <section className="w-full min-h-screen py-24 px-6 bg-gradient-to-b from-black to-gray-900">
-        <div className="max-w-6xl mx-auto">
-          <ScrollReveal 
-            showProgress={section4Show} 
-            direction="up"
-          >
-            <div className="grid md:grid-cols-2 gap-16 items-center">
-              <motion.div
-                className="relative order-2 md:order-1"
-                initial={{ x: -30, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                viewport={{ once: true, amount: 0.3 }}
-              >
-                <div className="absolute -inset-4 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-3xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500" />
-                <img
-                  src="/1a5c9ed812ef79bb0eb41e9e12da0d94.jpg"
-                  alt="Pre Wedding Events"
-                  className="relative w-full rounded-2xl shadow-2xl object-cover h-80 md:h-96 transform transition-all duration-500 hover:scale-[1.02]"
-                />
-              </motion.div>
+  <div className="max-w-6xl mx-auto">
+    <ScrollReveal showProgress={section4Show} direction="up">
+      <div className="grid md:grid-cols-2 gap-16 items-center">
 
-              <motion.div 
-                className="space-y-8 order-1 md:order-2"
-                initial={{ x: 30, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                viewport={{ once: true, amount: 0.3 }}
+        {/* IMAGE */}
+        <motion.div
+          className="relative order-2 md:order-1 group"
+          initial={{ x: -30, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          {/* 🔥 Better glow */}
+          <div className="absolute -inset-4 bg-gradient-to-r from-pink-500 to-yellow-500 rounded-3xl blur-xl opacity-20 group-hover:opacity-40 transition duration-500" />
+
+          <img
+            src="/1a5c9ed812ef79bb0eb41e9e12da0d94.jpg"
+            alt="Pre Wedding Events"
+            className="relative w-full rounded-2xl shadow-2xl object-cover h-80 md:h-96 transition-transform duration-500 group-hover:scale-[1.03]"
+          />
+        </motion.div>
+
+        {/* CONTENT */}
+        <motion.div 
+          className="space-y-8 order-1 md:order-2"
+          initial={{ x: 30, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
+
+          {/* 🔥 PREMIUM HEADING */}
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold 
+          bg-gradient-to-r from-pink-500 to-yellow-500 
+          bg-clip-text text-transparent 
+          drop-shadow-[0_0_20px_rgba(255,105,180,0.25)]">
+            Pre-Wedding Events
+          </h2>
+
+          <ul className="space-y-6 text-lg">
+            {[
+              "Engagement Parties",
+              "Bridal Showers",
+              "Bachelor / Bachelorette",
+              "Mehndi & Sangeet Nights"
+            ].map((item, idx) => (
+              <motion.li
+                key={idx}
+                className="flex items-center gap-4 text-white group cursor-pointer"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                whileHover={{ x: 10 }}
+                transition={{
+                  duration: 0.4,
+                  delay: idx * 0.1,
+                  ease: "easeOut"
+                }}
               >
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-yellow-400">
-                  Pre-Wedding Events
-                </h2>
-                <ul className="space-y-5 text-lg">
-                  {[
-                    "Engagement Parties",
-                    "Bridal Showers",
-                    "Bachelor / Bachelorette",
-                    "Mehndi & Sangeet Nights"
-                  ].map((item, idx) => (
-                    <motion.li
-                      key={idx}
-                      className="flex items-center gap-4 text-white/90 hover:text-white transition-colors group"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      whileHover={{ x: 8 }}
-                      transition={{
-                        duration: 0.4,
-                        delay: idx * 0.1,
-                        ease: "easeOut"
-                      }}
-                    >
-                      <motion.div
-                        className="w-8 h-8 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-full flex items-center justify-center flex-shrink-0"
-                        whileHover={{ scale: 1.2, rotate: 180 }}
-                        transition={{ duration: 0.3, ease: "easeOut" }}
-                      >
-                        <span className="text-white text-sm font-bold">✓</span>
-                      </motion.div>
-                      <span className="text-xl font-medium">{item}</span>
-                    </motion.li>
-                  ))}
-                </ul>
-              </motion.div>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
+                {/* 🔥 ICON */}
+                <motion.div
+                  className="w-9 h-9 bg-gradient-to-r from-pink-500 to-yellow-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg"
+                  whileHover={{ scale: 1.2, rotate: 180 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <span className="text-white text-sm font-bold">✓</span>
+                </motion.div>
+
+                {/* TEXT */}
+                <span className="text-xl font-medium group-hover:text-yellow-300 transition-colors duration-300">
+                  {item}
+                </span>
+              </motion.li>
+            ))}
+          </ul>
+
+        </motion.div>
+
+      </div>
+    </ScrollReveal>
+  </div>
+</section>
 
       {/* WEDDING DAY SERVICES SECTION */}
       <section className="w-full min-h-screen py-24 px-6 bg-gradient-to-b from-gray-900 to-black">
-        <div className="max-w-7xl mx-auto">
-          <ScrollReveal 
-            showProgress={section5Show} 
-            direction="up"
-          >
-            <motion.div 
-              className="text-center mb-20"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-yellow-400">
-                Wedding Day Services
-              </h2>
-            </motion.div>
+  <div className="max-w-7xl mx-auto">
+    <ScrollReveal showProgress={section5Show} direction="up">
+      
+      {/* HEADER */}
+      <motion.div 
+        className="text-center mb-20"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        {/* ✅ FIXED HEADING */}
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 
+        bg-gradient-to-r from-pink-500 to-yellow-500 
+        bg-clip-text text-transparent 
+        drop-shadow-[0_0_20px_rgba(255,105,180,0.25)]">
+          Wedding Day Services
+        </h2>
+      </motion.div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              {[
-                "Venue Styling & Decoration",
-                "Stage & Floral Arrangements",
-                "Lighting & Ambience Design",
-                "Photography & Videography",
-                "Entertainment (Bands, DJs, Dancers)",
-                "Catering & Menu Planning",
-                "Guest Management & Hospitality",
-                "Bridal & Groom Styling",
-                "Transportation & Logistics",
-              ].map((item, idx) => (
+      {/* GRID */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {[
+          "Venue Styling & Decoration",
+          "Stage & Floral Arrangements",
+          "Lighting & Ambience Design",
+          "Photography & Videography",
+          "Entertainment (Bands, DJs, Dancers)",
+          "Catering & Menu Planning",
+          "Guest Management & Hospitality",
+          "Bridal & Groom Styling",
+          "Transportation & Logistics",
+        ].map((item, idx) => (
+          <motion.div
+            key={idx}
+            initial={{ y: 50, opacity: 0, scale: 0.9 }}
+            whileInView={{ y: 0, opacity: 1, scale: 1 }}
+            transition={{ 
+              duration: 0.5, 
+              ease: "easeOut",
+              delay: idx * 0.05 
+            }}
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.05, y: -6 }}
+            className="relative group"
+          >
+            {/* 🔥 UPDATED GLOW */}
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-500 to-yellow-500 rounded-xl blur opacity-0 group-hover:opacity-30 transition duration-300" />
+
+            <div className="relative bg-gradient-to-b from-gray-900 to-black p-7 rounded-xl border border-white/10 backdrop-blur-sm h-full flex items-center">
+              
+              <div className="flex items-start gap-4">
+                
+                {/* 🔥 ICON UPDATED */}
                 <motion.div
-                  key={idx}
-                  initial={{ y: 50, opacity: 0, scale: 0.9 }}
-                  whileInView={{ y: 0, opacity: 1, scale: 1 }}
-                  transition={{ 
-                    duration: 0.5, 
-                    ease: "easeOut",
-                    delay: idx * 0.05 
-                  }}
-                  viewport={{ once: true }}
-                  whileHover={{ 
-                    scale: 1.05, 
-                    y: -5,
-                    transition: { duration: 0.3, ease: "easeOut" } 
-                  }}
-                  className="relative group"
+                  className="w-7 h-7 bg-gradient-to-r from-pink-500 to-yellow-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1 shadow-md"
+                  whileHover={{ scale: 1.3, rotate: 90 }}
+                  transition={{ duration: 0.3 }}
                 >
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-300" />
-                  <div className="relative bg-gradient-to-b from-gray-900 to-black p-7 rounded-xl border border-white/10 backdrop-blur-sm h-full flex items-center">
-                    <div className="flex items-start gap-4">
-                      <motion.div
-                        className="w-6 h-6 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
-                        whileHover={{ scale: 1.3, rotate: 90 }}
-                        transition={{ duration: 0.3, ease: "easeOut" }}
-                      >
-                        <span className="text-white text-xs font-bold">+</span>
-                      </motion.div>
-                      <h3 className="text-lg md:text-xl font-semibold text-white group-hover:text-yellow-300 transition-colors duration-300 leading-relaxed">
-                        {item}
-                      </h3>
-                    </div>
-                  </div>
+                  <span className="text-white text-xs font-bold">+</span>
                 </motion.div>
-              ))}
+
+                {/* ✅ TEXT CLEAN */}
+                <h3 className="text-lg md:text-xl font-semibold text-white leading-relaxed">
+                  {item}
+                </h3>
+
+              </div>
             </div>
-          </ScrollReveal>
-        </div>
-      </section>
+          </motion.div>
+        ))}
+      </div>
+
+    </ScrollReveal>
+  </div>
+</section>
 
       {/* DRIP SECTION */}
       <section className="w-full min-h-screen">
