@@ -68,28 +68,29 @@ const EventBlock: React.FC<EventBlockProps> = ({ text, description, index, isMob
           </motion.div>
 
           {/* Text */}
-          <div className="flex-1">
-            <motion.h3
-              initial={{ opacity: 0, x: -15 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              className={`font-bold text-[clamp(1.5rem,5vw,2.5rem)] sm:text-[clamp(2rem,6vw,3rem)] md:text-[clamp(2.5rem,6.5vw,3.5rem)]`}
-              style={{
-                background: `linear-gradient(135deg, ${theme.gradient.join(",")})`,
-                WebkitBackgroundClip: "text",
-                color: "transparent",
-              }}
-            >
-              {text}
-            </motion.h3>
+         {/* Text */}
+<div className="flex-1">
+  <motion.h3
+    initial={{ opacity: 0, x: -15 }}
+    animate={inView ? { opacity: 1, x: 0 } : {}}
+    className={`font-bold 
+    text-[clamp(1.5rem,5vw,2.5rem)] 
+    sm:text-[clamp(2rem,6vw,3rem)] 
+    md:text-[clamp(2.5rem,6.5vw,3.5rem)]
+    bg-gradient-to-r from-pink-500 to-yellow-500 
+    bg-clip-text text-transparent`}
+  >
+    {text}
+  </motion.h3>
 
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={inView ? { opacity: 1 } : {}}
-              className="text-gray-300 mt-1 sm:mt-2 text-[clamp(0.8rem,2.5vw,1rem)] sm:text-sm md:text-base"
-            >
-              {description}
-            </motion.p>
-          </div>
+  <motion.p
+    initial={{ opacity: 0 }}
+    animate={inView ? { opacity: 1 } : {}}
+    className="text-white mt-1 sm:mt-2 text-[clamp(0.8rem,2.5vw,1rem)] sm:text-sm md:text-base"
+  >
+    {description}
+  </motion.p>
+</div>
         </div>
       </div>
     </motion.div>
@@ -197,14 +198,14 @@ const ScrollHighlight: React.FC = () => {
 
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-snug">
           Crafting{" "}
-          <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-amber-400 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent">
             Unforgettable
           </span>
           <br />
           Celebrations
         </h1>
 
-        <p className="text-gray-300 text-sm sm:text-base md:text-lg">
+        <p className="text-white text-sm sm:text-base md:text-lg">
           We design extraordinary events that create lasting memories.
         </p>
       </motion.div>

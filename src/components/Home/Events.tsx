@@ -59,12 +59,16 @@ export default function Events() {
         transition={{ duration: 1 }}
         className="text-center mb-12 sm:mb-16 md:mb-20"
       >
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-snug">
-          Event Highlights
-        </h2>
-        <p className="text-gray-400 mt-2 sm:mt-4 text-sm sm:text-base md:text-lg max-w-xl mx-auto">
-          Discover some of our most memorable celebrations and experiences crafted for our amazing clients.
-        </p>
+       <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold 
+bg-gradient-to-r from-pink-500 to-yellow-500 
+bg-clip-text text-transparent 
+leading-snug">
+  Event Highlights
+</h2>
+
+<p className="text-white mt-2 sm:mt-4 text-sm sm:text-base md:text-lg max-w-xl mx-auto">
+  Discover some of our most memorable celebrations and experiences crafted for our amazing clients.
+</p>
       </motion.div>
 
       {/* FEATURED EVENT */}
