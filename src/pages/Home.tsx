@@ -1,7 +1,7 @@
 import ScrollReveal from "@/components/Home/Scroll";
 import HeroSection from "@/components/Home/Herosection";
 import AboutUs from "@/components/Home/About";
-import ServicesSection from "@/components/Home/Services";
+// import ServicesSection from "@/components/Home/Services";
 
 import ScrollHighlight from "@/components/Home/Servdk";
 import { useEffect } from "react";
@@ -29,7 +29,7 @@ useEffect(() => {
       <HeroSection onPlanClick={handlePlanClick} />
 
       <ScrollReveal><CelebrateLove/></ScrollReveal>
-     <ServicesSection />
+     {/* <ServicesSection /> */}
       <ScrollReveal delay={0.2}><ScrollHighlight/></ScrollReveal>
       <DripSection/>
     </div>
