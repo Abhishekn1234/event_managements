@@ -44,10 +44,10 @@ export default function Gallery() {
   {/* Background image */}
   <div
     className={`absolute inset-0 transition-all duration-1000 ease-out
-      ${visible1 ? "opacity-100 scale-100" : "opacity-0 scale-110"}
+      ${visible1 ? "opacity-100 scale-100" : "opacity-50 scale-110"}
     `}
     style={{
-      backgroundImage: "url('/gallery events.jpg')",
+      backgroundImage: "url('/85 Outdoor Wedding Arch Ideas for a Picture-Perfect Ceremony.jpg')",
       backgroundSize: "cover",
       backgroundPosition: "center",
     }}
@@ -56,7 +56,7 @@ export default function Gallery() {
   {/* Warm side light (luxury feel) */}
   <div
     className={`absolute inset-0 pointer-events-none transition-opacity duration-1000
-      ${visible1 ? "opacity-100" : "opacity-0"}
+      ${visible1 ? "opacity-100" : "opacity-50"}
     `}
     style={{
       background:
