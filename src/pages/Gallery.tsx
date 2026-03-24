@@ -93,9 +93,12 @@ export default function Gallery() {
       ${visible1 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
     `}
   >
-    <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-pink-500 to-yellow-500 mb-6 tracking-tight">
-      Gallery
-    </h1>
+    <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold 
+bg-gradient-to-r from-pink-500 to-yellow-500 
+bg-clip-text text-transparent 
+mb-6 tracking-tight">
+  Gallery
+</h1>
     <br/>
 
     <p className="inline-block  mb-3 text-xl md:text-2xl text-gray-300 px-4 py-2 border border-white/20 rounded-full backdrop-blur-sm">

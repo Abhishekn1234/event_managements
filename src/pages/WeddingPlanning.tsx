@@ -87,7 +87,11 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
     </motion.div>
   );
 };
+const headingGradient =
+  "bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent";
 
+// 🔥 Replace ALL description text with:
+const descText = "text-white";
 
   return (
     <div ref={containerRef} className="relative bg-black">
