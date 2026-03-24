@@ -190,7 +190,7 @@ const ScrollReveal = ({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5 }}
-                className="text-3xl md:text-5xl font-extrabold text-white mb-3"
+                className="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-pink-500 to-yellow-500 text-transparent bg-clip-text mb-3"
               >
                 Our Expertise
               </motion.h2>
@@ -199,7 +199,7 @@ const ScrollReveal = ({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="text-xl md:text-2xl text-orange-500 mb-10 md:mb-14"
+                className="text-xl md:text-2xl text-white mb-10 md:mb-14"
               >
                 Crafting Unforgettable Experiences, One Moment at a Time.
               </motion.h3>
@@ -221,13 +221,13 @@ const ScrollReveal = ({
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
                       />
-                      <h4 className="absolute bottom-4 left-4 text-2xl md:text-3xl font-bold text-orange-500">
+                      <h4 className="absolute bottom-4 left-4 text-2xl md:text-3xl font-bold bg-gradient-to-r from-pink-500 to-yellow-500 text-transparent bg-clip-text">
                         {card.title}
                       </h4>
                     </div>
 
                     <div className="p-6 flex flex-col flex-1">
-                      <p className="text-gray-300 text-lg mb-5">{card.desc}</p>
+                      <p className="text-white text-lg mb-5">{card.desc}</p>
 
                       <ul className="space-y-3 text-gray-200 text-sm md:text-base mt-auto">
                         {card.points.map((p, i) => (
@@ -235,7 +235,7 @@ const ScrollReveal = ({
                             key={i}
                             className="flex items-start gap-3 group-hover:translate-x-2 transition-transform duration-300"
                           >
-                            <span className="text-orange-500 text-xl leading-none mt-1">•</span>
+                            <span className="bg-gradient-to-r from-pink-500 to-yellow-500 text-transparent bg-clip-text text-xl leading-none mt-1">•</span>
                             <span>{p}</span>
                           </li>
                         ))}
@@ -259,7 +259,7 @@ const ScrollReveal = ({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5 }}
-                className="text-3xl md:text-5xl font-extrabold text-white mb-3"
+                className="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-pink-500 to-yellow-500 text-transparent bg-clip-text mb-3"
               >
                 Our Philosophy
               </motion.h2>
@@ -268,7 +268,7 @@ const ScrollReveal = ({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="text-lg md:text-2xl text-orange-500 mb-10 md:mb-14 max-w-3xl mx-auto"
+                className="text-lg md:text-2xl text-white mb-10 md:mb-14 max-w-3xl mx-auto"
               >
                 Why We Are The Right Partner for Your Event.
               </motion.p>
@@ -290,13 +290,13 @@ const ScrollReveal = ({
                         {typeof item.icon === "string" ? (
                           <span className="text-2xl">{item.icon}</span>
                         ) : (
-                          <div className="text-orange-500 text-2xl">{item.icon}</div>
+                          <div className="bg-gradient-to-r from-pink-500 to-yellow-500 text-transparent bg-clip-text text-2xl">{item.icon}</div>
                         )}
-                        <h3 className="text-2xl font-bold text-orange-500">
+                        <h3 className="text-2xl font-bold text-white">
                           {item.title}
                         </h3>
                       </div>
-                      <p className="text-gray-300 text-md leading-relaxed flex-1">
+                      <p className="text-white text-md leading-relaxed flex-1">
                         {item.desc}
                       </p>
                     </div>
