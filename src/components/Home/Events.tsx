@@ -68,7 +68,7 @@ export default function Events() {
       </motion.div>
 
       {/* FEATURED EVENT */}
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={isActive ? { opacity: 1, scale: 1 } : {}}
         transition={{ duration: 0.9 }}
@@ -98,7 +98,7 @@ export default function Events() {
             </p>
           </div>
         </div>
-      </motion.div>
+      </motion.div> */}
 
       {/* EVENT GRID */}
       <motion.div
