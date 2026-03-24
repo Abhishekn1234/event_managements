@@ -78,7 +78,7 @@ export default function Contact() {
                 Us
               </span>
             </h2>
-          <p className="bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent max-w-2xl mx-auto">
+          <p className="bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent max-w-2xl mx-auto">
             Share your vision—whether it’s a wedding, corporate gala, or private
             celebration—and we’ll make it unforgettable.
           </p>
@@ -86,7 +86,7 @@ export default function Contact() {
 
         {/* Contact Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-          <div className="bg-gray-900 rounded-xl p-8 text-center shadow-xl">
+          <div className="bg-gradient-to-r from-pink-500 to-purple-500 rounded-xl p-8 text-center shadow-xl">
             <div className="text-yellow-500 text-4xl mb-4">📧</div>
             <h3 className="text-xl font-semibold">Email Us</h3>
             <p className="text-gray-300">
@@ -96,7 +96,7 @@ export default function Contact() {
             </p>
           </div>
 
-          <div className="bg-gray-900 rounded-xl p-8 text-center shadow-xl">
+          <div className="bg-gradient-to-r from-pink-500 to-purple-500 rounded-xl p-8 text-center shadow-xl">
             <div className="text-yellow-500 text-4xl mb-4">📞</div>
             <h3 className="text-xl font-semibold">Call Us</h3>
             <p className="text-gray-300">
