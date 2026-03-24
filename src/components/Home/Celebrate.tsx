@@ -188,7 +188,7 @@ const CelebrateMoments = () => {
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="text-[clamp(3rem,10vw,8rem)] font-black bg-gradient-to-r from-yellow-300 via-red-400 to-pink-500 bg-clip-text text-transparent"
+            className="bg-gradient-to-r from-purple-400 via-pink-400 to-amber-400 bg-clip-text text-transparent"
           >
             UNFORGETTABLE
           </motion.h1>
@@ -198,7 +198,7 @@ const CelebrateMoments = () => {
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="text-[clamp(2.5rem,8vw,6rem)] font-black uppercase bg-gradient-to-r from-amber-300 to-pink-500 bg-clip-text text-transparent"
+          className="bg-gradient-to-r from-purple-400 via-pink-400 to-amber-400 bg-clip-text text-transparent"
         >
           Moments
         </motion.h2>
@@ -226,7 +226,7 @@ const CelebrateMoments = () => {
         "_blank"
       )
     }
-    className="px-8 py-4 border border-amber-400 rounded-full text-amber-200 hover:bg-amber-400/10 hover:shadow-[0_0_20px_rgba(251,191,36,0.4)] transition"
+    className="px-8 py-4 border border-blue-400 bg-gradient-to-r from-purple-400 via-pink-400 to-amber-400 bg-clip-text text-transparent"
   >
     Start your journey
   </button>

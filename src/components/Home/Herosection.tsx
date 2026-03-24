@@ -45,7 +45,7 @@ const HeroSection: FC<HeroSectionProps> = ({ onPlanClick }) => {
         <h1 className="font-extrabold text-white leading-tight sm:leading-tight md:leading-tight lg:leading-tight">
           <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
             Turning Your{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-yellow-500">
+            <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-amber-400 bg-clip-text text-transparent">
               Dream Events
             </span>
           </span>
@@ -57,7 +57,7 @@ const HeroSection: FC<HeroSectionProps> = ({ onPlanClick }) => {
         {/* Paragraph */}
         <p className="text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl max-w-3xl mx-auto leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed text-center">
           From weddings and corporate gatherings to birthdays and private celebrations,{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-yellow-500">
+          <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-amber-400 bg-clip-text text-transparent">
             Aalizah Events
           </span>{" "}
           brings creativity, elegance, and flawless execution to every moment.
@@ -66,7 +66,7 @@ const HeroSection: FC<HeroSectionProps> = ({ onPlanClick }) => {
         {/* Button */}
         <button
           onClick={onPlanClick}
-          className="w-full sm:w-auto bg-cyan-500 hover:bg-cyan-400 text-black font-bold px-8 sm:px-10 py-3 sm:py-4 rounded-2xl shadow-xl transition-all duration-300 hover:scale-105"
+          className="w-full sm:w-auto bg-gradient-to-r from-purple-400 via-pink-400 to-amber-400 bg-clip-text text-transparent"
         >
           Plan Your Event
         </button>
