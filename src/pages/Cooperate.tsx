@@ -131,7 +131,7 @@ export default function Corporate() {
             Corporate Events
           </h1>
 
-          <div className="w-24 h-1 bg-white to-yellow-500 bg-clip-text text-transparent mx-auto mb-6 rounded-full" />
+          <div className="w-24 h-1 bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent mx-auto mb-6 rounded-full" />
 
           <h2 className="text-xl md:text-2xl lg:text-3xl bg-white bg-clip-text text-transparent font-semibold mb-6">
             Corporate Events that Inspire & Connect
@@ -178,8 +178,8 @@ export default function Corporate() {
               {/* Content Section */}
               <motion.div custom={1} variants={fadeRight} className="px-4 md:px-8 lg:px-12">
                 <div className="inline-flex items-center gap-2 mb-4">
-                  <div className="w-8 h-1 bg-orange-500 rounded-full" />
-                  <span className="text-orange-500 font-medium tracking-wider uppercase text-sm">
+                  <div className="w-8 h-1 bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent rounded-full" />
+                  <span className="bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent font-medium tracking-wider uppercase text-sm">
                     Corporate Excellence
                   </span>
                 </div>
@@ -208,8 +208,8 @@ export default function Corporate() {
               {/* Content Section */}
               <motion.div custom={0} variants={fadeLeft} className="px-4 md:px-8 lg:px-12">
                 <div className="inline-flex items-center gap-2 mb-4">
-                  <div className="w-8 h-1 bg-orange-500 rounded-full" />
-                  <span className="text-orange-500 font-medium tracking-wider uppercase text-sm">
+                  <div className="w-8 h-1 bg-gradient-to-r from-pink-500 to-yellow-500 text-transparent bg-clip-text rounded-full" />
+                  <span className="bg-gradient-to-r from-pink-500 to-yellow-500 text-transparent bg-clip-text font-medium tracking-wider uppercase text-sm">
                     Corporate Excellence
                   </span>
                 </div>
