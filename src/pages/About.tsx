@@ -342,7 +342,7 @@ export default function About() {
             className="text-center"
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight">
-              OUR STORY <span className="text-gray-400">&</span> PHILOSOPHY
+              OUR STORY <span className="text-transparent bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text">&</span> PHILOSOPHY
             </h2>
             
             <motion.div
