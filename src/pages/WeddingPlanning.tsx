@@ -174,7 +174,7 @@ const descText = "text-white";
             </motion.p>
             
             <motion.button
-              className="relative bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-white px-10 py-5 text-lg md:text-xl rounded-2xl font-semibold shadow-2xl hover:shadow-orange-500/30 transition-all duration-300 hover:scale-105 group overflow-hidden"
+              className="relative bg-gradient-to-r from-pink-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-white px-10 py-5 text-lg md:text-xl rounded-2xl font-semibold shadow-2xl hover:shadow-orange-500/30 transition-all duration-300 hover:scale-105 group overflow-hidden"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.7, ease: "easeOut" }}
