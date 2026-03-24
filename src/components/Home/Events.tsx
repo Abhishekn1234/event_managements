@@ -118,10 +118,21 @@ leading-snug">
               className="w-full h-[180px] sm:h-[220px] md:h-[260px] lg:h-[280px] object-cover group-hover:scale-110 transition duration-700"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-            <div className="absolute bottom-3 sm:bottom-4 md:bottom-5 left-3 sm:left-4 md:left-5 right-3 sm:right-4 text-white">
-              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-1">{event.title}</h3>
-              <p className="text-xs sm:text-sm md:text-base text-gray-300">{event.description}</p>
-            </div>
+            <div className="absolute bottom-3 sm:bottom-4 md:bottom-5 left-3 sm:left-4 md:left-5 right-3 sm:right-4">
+  
+  {/* ✅ GRADIENT TITLE */}
+  <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-1 
+  bg-gradient-to-r from-pink-500 to-yellow-500 
+  bg-clip-text text-transparent">
+    {event.title}
+  </h3>
+
+  {/* ✅ PURE WHITE DESCRIPTION */}
+  <p className="text-xs sm:text-sm md:text-base text-white">
+    {event.description}
+  </p>
+
+</div>
           </motion.div>
         ))}
       </motion.div>
