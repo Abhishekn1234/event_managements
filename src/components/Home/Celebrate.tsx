@@ -3,18 +3,12 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 
-/* =========================
-   Colors
-========================= */
 const colorA = "#FFB347";
 const colorB = "#FF6B6B";
 const colorC = "#C44569";
 const colorD = "#F9D56E";
 const colorE = "#E84A5F";
 
-/* =========================
-   Animated Word
-========================= */
 const AnimatedWord = ({
   children,
   delay = 0,
@@ -27,18 +21,15 @@ const AnimatedWord = ({
   gradientColors?: string[];
 }) => {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, {
-    margin: "-15% 0px -15% 0px",
-    amount: 0.3,
-  });
+  const inView = useInView(ref, { margin: "-15% 0px -15% 0px", amount: 0.3 });
 
   return (
     <span
       ref={ref}
       className={`inline-block ${className}`}
       style={{
-        opacity: inView ? 1 : 0.4,
-        transform: inView ? "translateY(0px)" : "translateY(25px)",
+        opacity: inView ? 1 : 0.3,
+        transform: inView ? "translateY(0px)" : "translateY(30px)",
         background: inView
           ? `linear-gradient(135deg, ${gradientColors.join(", ")})`
           : "none",
@@ -46,7 +37,7 @@ const AnimatedWord = ({
         color: inView ? "transparent" : "#9ca3af",
         transition: "all 0.8s ease",
         transitionDelay: `${delay}s`,
-        fontWeight: 600,
+        fontWeight: 700,
       }}
     >
       {children}
@@ -54,9 +45,6 @@ const AnimatedWord = ({
   );
 };
 
-/* =========================
-   Split Phrase
-========================= */
 const SplitPhrase = ({
   phrase,
   baseDelay = 0,
@@ -69,7 +57,7 @@ const SplitPhrase = ({
   gradientOverride?: string[];
 }) => {
   return (
-    <div className="flex flex-wrap justify-center gap-x-5 gap-y-3">
+    <div className="flex flex-wrap justify-center gap-x-5 gap-y-4">
       {phrase.split(" ").map((word, i) => (
         <AnimatedWord
           key={i}
@@ -84,9 +72,6 @@ const SplitPhrase = ({
   );
 };
 
-/* =========================
-   Glow Orb
-========================= */
 const GlowOrb = ({
   size,
   color,
@@ -99,14 +84,11 @@ const GlowOrb = ({
   left: string;
 }) => (
   <div
-    className={`absolute ${size} rounded-full bg-gradient-to-r ${color} blur-[100px] opacity-70 pointer-events-none animate-pulse`}
+    className={`absolute ${size} rounded-full bg-gradient-to-r ${color} blur-[120px] opacity-70 pointer-events-none animate-pulse`}
     style={{ top, left }}
   />
 );
 
-/* =========================
-   MAIN COMPONENT
-========================= */
 const CelebrateMoments = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
@@ -128,7 +110,7 @@ const CelebrateMoments = () => {
       ref={sectionRef}
       className="relative w-full min-h-screen flex items-center justify-center px-6 md:px-16 py-20 bg-gradient-to-br from-[#0a0c10] via-[#11141c] to-[#0b0e14] overflow-hidden"
     >
-      {/* Parallax Glow */}
+      {/* Parallax Glow Background */}
       <div
         className="absolute w-[700px] h-[700px] rounded-full bg-gradient-to-r from-orange-400/10 to-pink-500/10 blur-[140px]"
         style={{
@@ -137,7 +119,6 @@ const CelebrateMoments = () => {
           left: "-15%",
         }}
       />
-
       <div
         className="absolute w-[800px] h-[800px] rounded-full bg-gradient-to-l from-yellow-300/10 to-red-400/10 blur-[160px]"
         style={{
@@ -146,8 +127,6 @@ const CelebrateMoments = () => {
           right: "-10%",
         }}
       />
-
-      {/* Extra Glow */}
       <GlowOrb
         size="w-[400px] h-[400px]"
         color="from-rose-300/10 to-amber-200/10"
@@ -155,32 +134,31 @@ const CelebrateMoments = () => {
         left="-10%"
       />
 
-      <div className="relative z-10 text-center max-w-6xl space-y-14">
-
+      <div className="relative z-10 text-center max-w-7xl space-y-16">
         {/* Tagline */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           className="inline-block px-6 py-2 rounded-full bg-white/5 border border-white/10"
         >
-          <span className="text-xs uppercase tracking-[0.3em] text-amber-200">
+          <span className="text-xs sm:text-sm md:text-base uppercase tracking-widest text-amber-200">
             Curated for the extraordinary
           </span>
         </motion.div>
 
-        {/* Main Text */}
-        <div className="space-y-4">
+        {/* Main Animated Text */}
+        <div className="space-y-6 sm:space-y-8 md:space-y-10">
           <SplitPhrase
             phrase="Where every"
             baseDelay={0.1}
-            wordClassName="text-5xl md:text-8xl font-bold"
+            wordClassName="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold"
             gradientOverride={[colorA, colorD, colorB]}
           />
 
           <SplitPhrase
             phrase="gathering becomes"
             baseDelay={0.3}
-            wordClassName="text-5xl md:text-8xl font-bold"
+            wordClassName="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold"
             gradientOverride={[colorB, colorC, colorE]}
           />
 
@@ -188,49 +166,50 @@ const CelebrateMoments = () => {
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="bg-gradient-to-r from-purple-400 via-pink-400 to-amber-400 bg-clip-text text-transparent"
+            className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-extrabold bg-gradient-to-r from-purple-400 via-pink-400 to-amber-400 bg-clip-text text-transparent tracking-tight"
           >
             UNFORGETTABLE
           </motion.h1>
         </div>
 
-        {/* Middle */}
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="bg-gradient-to-r from-purple-400 via-pink-400 to-amber-400 bg-clip-text text-transparent"
+          className="text-6xl sm:text-7xl md:text-8xl font-extrabold bg-gradient-to-r from-purple-400 via-pink-400 to-amber-400 bg-clip-text text-transparent tracking-tight"
         >
           Moments
         </motion.h2>
 
-        {/* Bottom */}
-        <div className="space-y-3">
+        {/* Bottom Phrase */}
+        <div className="space-y-4 sm:space-y-6">
           <SplitPhrase
             phrase="designed to echo"
             baseDelay={0.3}
-            wordClassName="text-3xl md:text-6xl"
+            wordClassName="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold"
           />
           <SplitPhrase
             phrase="through time & hearts"
             baseDelay={0.5}
-            wordClassName="text-3xl md:text-6xl"
+            wordClassName="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold"
           />
         </div>
 
         {/* CTA */}
-       <div className="flex flex-col sm:flex-row gap-5 justify-center items-center pt-6">
-  <button
-    onClick={() =>
-      window.open(
-        "https://wa.me/971521775669?text=Hello%20Aalizah%20Events,%20I%20would%20like%20to%20plan%20an%20event",
-        "_blank"
-      )
-    }
-    className="px-8 py-4 border border-blue-400 bg-gradient-to-r from-purple-400 via-pink-400 to-amber-400 bg-clip-text text-transparent"
-  >
-    Start your journey
-  </button>
-</div>
+        <div className="flex flex-col sm:flex-row gap-5 justify-center items-center pt-8">
+          <button
+            onClick={() =>
+              window.open(
+                "https://wa.me/971521775669?text=Hello%20Aalizah%20Events,%20I%20would%20like%20to%20plan%20an%20event",
+                "_blank"
+              )
+            }
+            className="px-10 py-5 rounded-3xl font-bold text-lg sm:text-xl bg-black/20 hover:bg-black/30 shadow-xl transition-all duration-300 hover:scale-105"
+          >
+            <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-amber-400 bg-clip-text text-transparent">
+              Start Your Journey
+            </span>
+          </button>
+        </div>
       </div>
     </section>
   );

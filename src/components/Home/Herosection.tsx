@@ -65,11 +65,13 @@ const HeroSection: FC<HeroSectionProps> = ({ onPlanClick }) => {
 
         {/* Button */}
         <button
-          onClick={onPlanClick}
-          className="w-full sm:w-auto bg-gradient-to-r from-purple-400 via-pink-400 to-amber-400 bg-clip-text text-transparent"
-        >
-          Plan Your Event
-        </button>
+            onClick={onPlanClick}
+            className="w-full sm:w-auto px-8 sm:px-10 py-3 sm:py-4 font-bold text-lg sm:text-xl rounded-2xl shadow-lg transition-all duration-300 transform hover:scale-105 bg-black/20 hover:bg-black/30"
+          >
+            <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-amber-400 bg-clip-text text-transparent">
+              Plan Your Event
+            </span>
+          </button>
       </div>
     </div>
   );
