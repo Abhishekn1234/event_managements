@@ -160,13 +160,13 @@ const ScrollReveal = ({
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           className="relative z-10 text-center px-6 max-w-3xl"
         >
-          <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-4 drop-shadow-lg">
+          <h1 className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent mb-4 drop-shadow-lg">
             Private Events
           </h1>
-          <h2 className="text-xl md:text-2xl text-orange-400 font-semibold mb-6">
+          <h2 className="text-xl md:text-2xl bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent font-semibold mb-6">
             Private Events, Impeccably Tailored to Your Story
           </h2>
-          <p className="text-gray-200 text-lg md:text-xl leading-relaxed mb-10">
+          <p className="bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent text-lg md:text-xl leading-relaxed mb-10">
             From intimate dinners to grand themed nights, we design every 
             celebration to reflect your unique personality and leave a lasting 
             impression on you and your guests.

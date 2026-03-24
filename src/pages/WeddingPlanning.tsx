@@ -142,7 +142,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
             className="relative z-20 flex flex-col items-center text-center justify-center h-full px-6 text-white max-w-2xl mx-auto"
           >
             <motion.h1
-              className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-yellow-300"
+              className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}

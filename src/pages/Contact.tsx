@@ -72,8 +72,13 @@ export default function Contact() {
       <section className="w-full bg-black text-white py-20 px-6">
         {/* Heading */}
         <div className="text-center mb-16 space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold">Contact Us</h2>
-          <p className="text-gray-300 max-w-2xl mx-auto">
+                    <h2 className="text-4xl md:text-5xl font-bold text-white">
+              Contact{" "}
+              <span className="bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent">
+                Us
+              </span>
+            </h2>
+          <p className="bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent max-w-2xl mx-auto">
             Share your vision—whether it’s a wedding, corporate gala, or private
             celebration—and we’ll make it unforgettable.
           </p>

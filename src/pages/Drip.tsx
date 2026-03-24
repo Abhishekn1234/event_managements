@@ -31,12 +31,16 @@ export default function DripSection() {
 
         {/* LEFT CONTENT */}
         <div className="space-y-6 text-center md:text-left">
+          
           <motion.h2
             variants={item}
             className="text-4xl sm:text-5xl md:text-6xl font-light text-white leading-tight"
           >
             Crafting Moments <br />
-            That Feel Like Magic
+            That Feel Like{" "}
+            <span className="bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent font-medium">
+              Magic
+            </span>
           </motion.h2>
 
           <motion.p
@@ -52,15 +56,15 @@ export default function DripSection() {
             variants={item}
             className="flex flex-wrap gap-3 justify-center md:justify-start text-xs tracking-widest text-gray-400"
           >
-            <span>PREMIUM EVENTS</span>
+            <span className="text-pink-400">PREMIUM EVENTS</span>
             <span>•</span>
-            <span>END-TO-END PLANNING</span>
+            <span className="text-yellow-400">END-TO-END PLANNING</span>
             <span>•</span>
-            <span>BESPOKE EXPERIENCES</span>
+            <span className="text-pink-400">BESPOKE EXPERIENCES</span>
           </motion.div>
         </div>
 
-        {/* RIGHT CONTENT - SERVICES */}
+        {/* RIGHT CONTENT */}
         <motion.div
           variants={item}
           className="grid grid-cols-2 gap-4"
@@ -75,9 +79,14 @@ export default function DripSection() {
           ].map((service, i) => (
             <div
               key={i}
-              className="bg-white/5 border border-white/10 backdrop-blur-lg rounded-2xl p-5 text-center hover:bg-white/10 transition"
+              className="bg-white/5 border border-white/10 backdrop-blur-lg 
+              rounded-2xl p-5 text-center 
+              hover:bg-white/10 hover:border-white/30 
+              transition"
             >
-              <p className="text-white text-sm md:text-base">{service}</p>
+              <p className="text-white text-sm md:text-base">
+                {service}
+              </p>
             </div>
           ))}
         </motion.div>
@@ -85,7 +94,8 @@ export default function DripSection() {
       </motion.div>
 
       {/* Bottom Glow Line */}
-      <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-[2px] 
+      bg-gradient-to-r from-transparent via-pink-500/40 to-yellow-500/40" />
 
     </section>
   );

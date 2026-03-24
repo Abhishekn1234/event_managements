@@ -47,17 +47,20 @@ export default function About() {
           className="relative z-10"
         >
           <motion.div
-            initial={{ scale: 0.95 }}
-            animate={{ scale: 1 }}
-            transition={{ 
-              duration: 1.5,
-              ease: "easeOut"
-            }}
-          >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight">
-              About <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Us</span>
-            </h1>
-          </motion.div>
+  initial={{ scale: 0.95 }}
+  animate={{ scale: 1 }}
+  transition={{ 
+    duration: 1.5,
+    ease: "easeOut"
+  }}
+>
+  <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight">
+    About{" "}
+    <span className="bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent">
+      Us
+    </span>
+  </h1>
+</motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -70,38 +73,44 @@ export default function About() {
             </span>
           </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 1 }}
-            className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-8 leading-relaxed"
-          >
-            Introduction
-          </motion.p>
+         <motion.p
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ delay: 0.5, duration: 1 }}
+  className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-8 leading-relaxed"
+>
+  Introduction
+</motion.p>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.8 }}
-            className="text-xl md:text-2xl text-white max-w-4xl mx-auto leading-relaxed font-light tracking-wide"
-          >
-            Aalizah Events is your premier partner in crafting unforgettable experiences — 
-            from dream weddings to seamless corporate events and intimate private 
-            celebrations.
-          </motion.p>
+<motion.p
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.7, duration: 0.8 }}
+  className="text-xl md:text-2xl text-white max-w-4xl mx-auto leading-relaxed font-light tracking-wide"
+>
+  Aalizah Events is your premier partner in crafting unforgettable experiences — 
+  from dream weddings to seamless corporate events and intimate private 
+  celebrations.
+</motion.p>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 1 }}
-            className="mt-12"
-          >
-            <div className="inline-flex items-center space-x-4">
-              <div className="w-16 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500" />
-              <span className="text-lg text-gray-400">Event Management Excellence</span>
-              <div className="w-16 h-0.5 bg-gradient-to-r from-pink-500 to-purple-500" />
-            </div>
-          </motion.div>
+<motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ delay: 1, duration: 1 }}
+  className="mt-12"
+>
+  <div className="inline-flex items-center space-x-4">
+    
+    <div className="w-16 h-0.5 bg-gradient-to-r from-pink-500 to-yellow-500" />
+    
+    <span className="text-lg text-gray-400">
+      Event Management Excellence
+    </span>
+    
+    <div className="w-16 h-0.5 bg-gradient-to-r from-yellow-500 to-pink-500" />
+  
+  </div>
+</motion.div>
         </motion.div>
       </section>
 
