@@ -131,13 +131,13 @@ export default function Corporate() {
             Corporate Events
           </h1>
 
-          <div className="w-24 h-1 bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent mx-auto mb-6 rounded-full" />
+          <div className="w-24 h-1 bg-white to-yellow-500 bg-clip-text text-transparent mx-auto mb-6 rounded-full" />
 
-          <h2 className="text-xl md:text-2xl lg:text-3xl bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent font-semibold mb-6">
+          <h2 className="text-xl md:text-2xl lg:text-3xl bg-white bg-clip-text text-transparent font-semibold mb-6">
             Corporate Events that Inspire & Connect
           </h2>
 
-          <p className="text-lg md:text-xl lg:text-2xl bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl lg:text-2xl bg-white bg-clip-text text-transparent max-w-3xl mx-auto leading-relaxed">
             We design professional, innovative, and brand-focused events that
             leave a lasting impression.
           </p>
