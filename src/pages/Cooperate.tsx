@@ -177,13 +177,8 @@ export default function Corporate() {
 
               {/* Content Section */}
               <motion.div custom={1} variants={fadeRight} className="px-4 md:px-8 lg:px-12">
-                <div className="inline-flex items-center gap-2 mb-4">
-                  <div className="w-8 h-1 bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent rounded-full" />
-                  <span className="bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent font-medium tracking-wider uppercase text-sm">
-                    Corporate Excellence
-                  </span>
-                </div>
-                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight">
+                
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent mb-4 leading-tight">
                   {section.title}
                 </h3>
                 <p className="text-gray-300 text-base md:text-lg mb-6 md:mb-8 leading-relaxed">
