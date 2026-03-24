@@ -173,7 +173,7 @@ const ScrollReveal = ({
           </p>
           <a
             href="#contact"
-            className="inline-block px-8 py-4 bg-orange-500 hover:bg-orange-600 text-black font-bold rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 text-lg transform hover:scale-105"
+            className="inline-block px-8 py-4 bg-gradient-to-r from-pink-500 to-yellow-500 text-transparent bg-clip-text font-bold rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 text-lg transform hover:scale-105"
           >
             Start Planning
           </a>
@@ -292,7 +292,7 @@ const ScrollReveal = ({
                         ) : (
                           <div className="bg-gradient-to-r from-pink-500 to-yellow-500 text-transparent bg-clip-text text-2xl">{item.icon}</div>
                         )}
-                        <h3 className="text-2xl font-bold text-white">
+                        <h3 className="text-2xl font-bold bg-gradient-to-r from-pink-500 to-yellow-500 text-transparent bg-clip-text">
                           {item.title}
                         </h3>
                       </div>
