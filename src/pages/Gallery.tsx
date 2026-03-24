@@ -93,15 +93,15 @@ export default function Gallery() {
       ${visible1 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
     `}
   >
-    <h1 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent tracking-wide">
+    <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight">
       Gallery
     </h1>
 
-    <p className="text-lg bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent mt-4">
+    <p className="inline-block text-xl md:text-2xl text-gray-300 px-4 py-2 border border-white/20 rounded-full backdrop-blur-sm">
       A Visual Journey of Our Events
     </p>
 
-    <p className="text-base bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent mt-3 leading-relaxed">
+    <p className="inline-block text-xl md:text-2xl text-gray-300 px-4 py-2 border border-white/20 rounded-full backdrop-blur-sm">
       A storytelling journey through our events—from vibrant celebrations to intimate
       gatherings, each frame captures a unique and magical story.
     </p>
