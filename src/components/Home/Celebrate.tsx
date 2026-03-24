@@ -166,7 +166,7 @@ const CelebrateMoments = () => {
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-extrabold bg-gradient-to-r from-purple-400 via-pink-400 to-amber-400 bg-clip-text text-transparent tracking-tight"
+            className="text-5xl sm:text-8xl md:text-9xl lg:text-[8rem] font-extrabold bg-gradient-to-r from-purple-400 via-pink-400 to-amber-400 bg-clip-text text-transparent tracking-tight"
           >
             UNFORGETTABLE
           </motion.h1>
