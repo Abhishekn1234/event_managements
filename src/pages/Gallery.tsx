@@ -125,12 +125,15 @@ mb-6 tracking-tight">
                 ${visible2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
               `}
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                Event Highlights
-              </h2>
-              <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-                A glimpse into the memorable events we've crafted with passion and precision
-              </p>
+             <h2 className="text-4xl md:text-5xl font-bold mb-4 
+bg-gradient-to-r from-pink-500 to-yellow-500 
+bg-clip-text text-transparent">
+  Event Highlights
+</h2>
+
+<p className="text-white text-lg max-w-2xl mx-auto">
+  A glimpse into the memorable events we've crafted with passion and precision
+</p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-6">
@@ -173,20 +176,24 @@ mb-6 tracking-tight">
               ${visible3 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
             `}
           >
-            <h2 className="text-3xl font-bold text-white mb-4">
-              Ready to Create Your Own Unforgettable Event?
-            </h2>
+            <h2 className="text-3xl font-bold mb-4 
+bg-gradient-to-r from-pink-500 to-yellow-500 
+bg-clip-text text-transparent">
+  Ready to Create Your Own Unforgettable Event?
+</h2>
 
-            <p className="text-white/70 mb-6">
-              Let's turn your vision into a stunning reality. Contact us to start planning your perfect event.
-            </p>
+<p className="text-white mb-6">
+  Let's turn your vision into a stunning reality. Contact us to start planning your perfect event.
+</p>
 
-            <button
-              onClick={() => window.open("https://wa.me/971502037669", "_blank")}
-              className="bg-orange-500 text-white px-10 py-4 rounded-xl text-lg font-semibold hover:bg-orange-600 transition"
-            >
-              Get a quote
-            </button>
+<button
+  onClick={() => window.open("https://wa.me/971502037669", "_blank")}
+  className="bg-gradient-to-r from-pink-500 to-yellow-500 
+  text-white px-10 py-4 rounded-xl text-lg font-semibold 
+  hover:from-pink-600 hover:to-yellow-600 
+  transition duration-300 shadow-lg hover:shadow-pink-500/30">
+  Get a quote
+</button>
           </div>
         </section>
       </div>
