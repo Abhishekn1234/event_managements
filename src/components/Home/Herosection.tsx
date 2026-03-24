@@ -8,14 +8,7 @@ const HeroSection: FC<HeroSectionProps> = ({ onPlanClick }) => {
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-     <video
-  src="/15497090-uhd_3840_2160_30fps.mp4" // replace with your video path
-  autoPlay
-  loop
-  muted
-  playsInline
-  className="absolute inset-0 w-full h-full object-cover"
->
+     <video src="/homevideo.mp4" autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
   Your browser does not support the video tag.
 </video>
 
