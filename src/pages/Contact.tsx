@@ -78,7 +78,7 @@ export default function Contact() {
                 Us
               </span>
             </h2>
-          <p className="bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent max-w-2xl mx-auto">
+          <p className="bg-white bg-clip-text text-transparent max-w-2xl mx-auto">
             Share your vision—whether it’s a wedding, corporate gala, or private
             celebration—and we’ll make it unforgettable.
           </p>
