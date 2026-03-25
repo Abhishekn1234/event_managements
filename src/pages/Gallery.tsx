@@ -40,7 +40,7 @@ export default function Gallery() {
   ref={ref1}
   className="relative h-screen w-full bg-black overflow-hidden flex items-center justify-center text-center px-6"
 >
-  {/* Background image */}
+  {/* Background image (full clarity) */}
   <div
     className={`absolute inset-0 transition-all duration-1000 ease-out
       ${visible1 ? "opacity-100 scale-100" : "opacity-50 scale-105"}
@@ -49,38 +49,37 @@ export default function Gallery() {
       backgroundImage: "url('/Decor Widding kosh Events Bride Flowers Roses Hall كوش زفاف 2025.jpg')",
       backgroundSize: "cover",
       backgroundPosition: "center",
-      filter: "brightness(1) contrast(1)", // ensure full clarity
+      filter: "brightness(1) contrast(1)", // full clarity
     }}
   />
 
-  {/* Optional soft vignette (subtle, no darkening) */}
+  {/* Optional subtle vignette */}
   <div
     className="absolute inset-0 pointer-events-none"
     style={{
       background:
-        "radial-gradient(circle at center, transparent 80%, rgba(0,0,0,0.15) 100%)",
+        "radial-gradient(circle at center, transparent 80%, rgba(0,0,0,0.05) 100%)",
     }}
   />
 
-  {/* Removed heavy dark overlay and strong spotlight */}
-
-  {/* Content */}
+  {/* Content with semi-transparent backdrop for readability */}
   <div
     className={`relative z-10 max-w-3xl transition-all duration-700
       ${visible1 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
-    `}
+      bg-black/40 backdrop-blur-sm p-8 rounded-xl`}
   >
     <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold 
 bg-gradient-to-r from-pink-500 to-yellow-500 
 bg-clip-text text-transparent 
-mb-6 tracking-tight">
+mb-6 tracking-tight drop-shadow-lg">
       Gallery
     </h1>
-    <p className="inline-block mb-3 text-xl md:text-2xl text-gray-300 px-4 py-2 border border-white/20 rounded-full backdrop-blur-sm">
+
+    <p className="mb-3 text-xl md:text-2xl text-gray-100 px-4 py-2 border border-white/20 rounded-full backdrop-blur-sm drop-shadow">
       A Visual Journey of Our Events
     </p>
   
-    <p className="inline-block text-xl md:text-2xl text-gray-300 px-4 py-2 border border-white/20 rounded-full backdrop-blur-sm">
+    <p className="text-xl md:text-2xl text-gray-100 px-4 py-2 border border-white/20 rounded-full backdrop-blur-sm drop-shadow">
       A storytelling journey through our events—from vibrant celebrations to intimate
       gatherings, each frame captures a unique and magical story.
     </p>
