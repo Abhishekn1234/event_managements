@@ -38,54 +38,31 @@ export default function Gallery() {
        {/* ================= HERO SECTION ================= */}
 <section
   ref={ref1}
-  className="relative h-screen w-full bg-black overflow-hidden
-  flex items-center justify-center text-center px-6"
+  className="relative h-screen w-full bg-black overflow-hidden flex items-center justify-center text-center px-6"
 >
   {/* Background image */}
   <div
     className={`absolute inset-0 transition-all duration-1000 ease-out
-      ${visible1 ? "opacity-100 scale-100" : "opacity-50 scale-110"}
+      ${visible1 ? "opacity-100 scale-100" : "opacity-50 scale-105"}
     `}
     style={{
-      backgroundImage: "url('/85 Outdoor Wedding Arch Ideas for a Picture-Perfect Ceremony.jpg')",
+      backgroundImage: "url('/Decor Widding kosh Events Bride Flowers Roses Hall كوش زفاف 2025.jpg')",
       backgroundSize: "cover",
       backgroundPosition: "center",
+      filter: "brightness(1) contrast(1)", // ensure full clarity
     }}
   />
 
-  {/* Warm side light (luxury feel) */}
-  <div
-    className={`absolute inset-0 pointer-events-none transition-opacity duration-1000
-      ${visible1 ? "opacity-100" : "opacity-50"}
-    `}
-    style={{
-      background:
-        "linear-gradient(120deg, rgba(255,215,160,0.28) 0%, transparent 55%)",
-    }}
-  />
-
-  {/* Center spotlight (image clarity) */}
-  <div
-    className={`absolute inset-0 pointer-events-none transition-opacity duration-1000
-      ${visible1 ? "opacity-100" : "opacity-0"}
-    `}
-    style={{
-      background:
-        "radial-gradient(circle at center, rgba(255,255,255,0.18) 0%, transparent 60%)",
-    }}
-  />
-
-  {/* Subtle vignette (cinematic edges) */}
+  {/* Optional soft vignette (subtle, no darkening) */}
   <div
     className="absolute inset-0 pointer-events-none"
     style={{
       background:
-        "radial-gradient(circle at center, transparent 55%, rgba(0,0,0,0.45) 100%)",
+        "radial-gradient(circle at center, transparent 80%, rgba(0,0,0,0.15) 100%)",
     }}
   />
 
-  {/* Dark overlay (REDUCED) */}
-  <div className="absolute inset-0 bg-black/50" />
+  {/* Removed heavy dark overlay and strong spotlight */}
 
   {/* Content */}
   <div
@@ -97,11 +74,9 @@ export default function Gallery() {
 bg-gradient-to-r from-pink-500 to-yellow-500 
 bg-clip-text text-transparent 
 mb-6 tracking-tight">
-  Gallery
-</h1>
-    <br/>
-
-    <p className="inline-block  mb-3 text-xl md:text-2xl text-gray-300 px-4 py-2 border border-white/20 rounded-full backdrop-blur-sm">
+      Gallery
+    </h1>
+    <p className="inline-block mb-3 text-xl md:text-2xl text-gray-300 px-4 py-2 border border-white/20 rounded-full backdrop-blur-sm">
       A Visual Journey of Our Events
     </p>
   
