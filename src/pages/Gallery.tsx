@@ -67,7 +67,7 @@ export default function Gallery() {
       ${visible1 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
       px-4`}
   >
-    <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
+    <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent mb-6 tracking-tight drop-shadow-lg">
       Gallery
     </h1>
 
