@@ -14,8 +14,13 @@ import WeddingPlanning from "./pages/WeddingPlanning";
 import Cooperate from "./pages/Cooperate";
 import Private from "./pages/Private";
 import Contact from "./pages/Contact";
+import ComingSoon from "./pages/ComingSoon";
+import { useLocation } from "react-router-dom";
 // import MouseFollower from "./pages/MouseFollower";
 function App() {
+  const { pathname } = useLocation();
+  if (pathname === "/") return <ComingSoon />;
+
   return (
     <>
       <Helmet>
