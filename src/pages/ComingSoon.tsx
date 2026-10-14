@@ -23,7 +23,7 @@ export default function ComingSoon() {
             We’re creating a new home for unforgettable moments. Thoughtful details, extraordinary occasions, and memories that stay with you.
           </p>
           <div className="coming-soon__actions">
-            <Link to="/events" className="coming-soon__button">Explore our events <ArrowUpRight size={17} /></Link>
+            <a href="https://wa.me/971521775669?text=Hello%21%20I%27d%20like%20to%20plan%20an%20event." target="_blank" rel="noreferrer" className="coming-soon__button">Plan your event <ArrowUpRight size={17} /></a>
             <a className="coming-soon__social" href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Follow Aalizah Events on Instagram"><Instagram size={19} /></a>
           </div>
           <p className="coming-soon__note">Planning something special? <a href="tel:+971521775669">Let’s make it happen.</a></p>
